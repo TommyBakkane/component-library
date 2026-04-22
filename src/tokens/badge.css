@@ -1,0 +1,4 @@
+:root {
+  --badge-bg: var(--color-primary);
+  --badge-color: var(--color-on-primary);
+}

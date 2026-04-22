@@ -1,0 +1,24 @@
+.divider {
+  border: none;
+  border-top: 0.5px solid var(--color-border);
+  width: 100%;
+  margin: 0;
+}
+
+.withLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.line {
+  flex: 1;
+  height: 0.5px;
+  background: var(--color-border);
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}

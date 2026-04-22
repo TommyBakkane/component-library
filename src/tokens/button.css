@@ -1,0 +1,11 @@
+:root {
+  --button-bg: var(--color-primary);
+  --button-outline-color: var(--color-primary);
+  --button-text-color: var(--color-on-primary);
+  --button-border: transparent;
+  --button-focus-ring: var(--color-primary);
+  --button-radius: var(--radius-md);
+
+  --button-hover-filter: brightness(1.1);
+  --button-active-filter: brightness(0.9);
+}
