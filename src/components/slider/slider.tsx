@@ -37,7 +37,7 @@ export interface SliderErrorProps {
 }
 
 export interface SliderProps
-  extends Omit<React.ComponentPropsWithRef<'input'>, 'type' | 'value' | 'defaultValue' | 'onChange'> {
+  extends Omit<React.ComponentPropsWithRef<'input'>, 'type' | 'value' | 'defaultValue' | 'onChange' | 'size'> {
   value?: number;
   defaultValue?: number;
   onChange?: (value: number) => void;

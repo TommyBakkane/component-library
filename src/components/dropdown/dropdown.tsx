@@ -97,9 +97,10 @@ DropdownRoot.displayName = 'Dropdown';
 
 const Trigger = ({ children }: DropdownTriggerProps) => {
   const { toggle, triggerRef, open } = useDropdown();
+  const childProps = (children as React.ReactElement<any>).props;
   return cloneElement(children as React.ReactElement<any>, {
     onClick: (e: React.MouseEvent) => {
-      children.props.onClick?.(e);
+      childProps.onClick?.(e);
       toggle();
     },
     ref: triggerRef,
