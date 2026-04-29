@@ -1,0 +1,8 @@
+:root {
+  --radio-size: 16px;
+  --radio-border: var(--color-border);
+  --radio-bg: var(--color-background);
+  --radio-checked-bg: var(--color-primary);
+  --radio-checked-border: var(--color-primary);
+  --radio-focus-ring: var(--color-primary);
+}

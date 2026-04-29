@@ -1,0 +1,61 @@
+.wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+/* ========================
+   TOOLTIP BUBBLE
+   ======================== */
+
+.tooltip {
+  position: absolute;
+  z-index: 100;
+  background: var(--tooltip-bg);
+  color: var(--tooltip-color);
+  font-size: var(--font-size-xs);
+  line-height: 1.4;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--tooltip-radius);
+  box-shadow: var(--tooltip-shadow);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+
+/* ========================
+   PLACEMENTS
+   ======================== */
+
+.wrapper[data-placement='top'] .tooltip {
+  bottom: calc(100% + var(--spacing-xs));
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.wrapper[data-placement='bottom'] .tooltip {
+  top: calc(100% + var(--spacing-xs));
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.wrapper[data-placement='left'] .tooltip {
+  right: calc(100% + var(--spacing-xs));
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.wrapper[data-placement='right'] .tooltip {
+  left: calc(100% + var(--spacing-xs));
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ========================
+   SHOW ON HOVER / FOCUS
+   ======================== */
+
+.wrapper:hover .tooltip,
+.wrapper:focus-within .tooltip {
+  opacity: 1;
+}

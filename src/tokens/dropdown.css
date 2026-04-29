@@ -1,0 +1,9 @@
+:root {
+  --dropdown-bg: var(--color-background);
+  --dropdown-border: var(--color-border);
+  --dropdown-radius: var(--radius-md);
+  --dropdown-shadow: var(--shadow-md);
+  --dropdown-item-hover-bg: var(--color-surface);
+  --dropdown-item-danger-color: var(--color-danger);
+  --dropdown-item-danger-hover-bg: var(--color-danger-soft);
+}

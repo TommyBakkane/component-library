@@ -1,6 +1,6 @@
 import styles from './flex.module.css';
 
-interface Props {
+export interface FlexProps {
   children: React.ReactNode;
   direction?: 'row' | 'column';
   align?: 'start' | 'center' | 'end' | 'stretch';
@@ -22,7 +22,7 @@ export function Flex({
   self,
   grow = false,
   className,
-}: Props) {
+}: FlexProps) {
   const classes = [
     styles.flex,
     styles[direction],

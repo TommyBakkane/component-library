@@ -1,19 +1,27 @@
 import styles from './grid.module.css';
 
-interface Props {
+export interface GridProps {
   children: React.ReactNode;
   cols?: number;
   gap?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  minColWidth?: string;
   className?: string;
 }
 
-export function Grid({ children, cols, gap = 'sm', className }: Props) {
+export function Grid({ children, cols, gap = 'sm', minColWidth, className }: GridProps) {
+  let colStyle: React.CSSProperties | undefined;
+  if (cols) {
+    colStyle = { gridTemplateColumns: `repeat(${cols}, 1fr)` };
+  } else if (minColWidth) {
+    colStyle = { gridTemplateColumns: `repeat(auto-fill, minmax(${minColWidth}, 1fr))` };
+  }
+
   return (
     <div
       className={[styles.grid, styles[`gap-${gap}`], className]
         .filter(Boolean)
         .join(' ')}
-      style={cols ? { gridTemplateColumns: `repeat(${cols}, 1fr)` } : undefined}
+      style={colStyle}
     >
       {children}
     </div>

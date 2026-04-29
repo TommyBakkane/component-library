@@ -1,0 +1,60 @@
+.root {
+  --_size: var(--size-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--_size);
+  height: var(--_size);
+  border-radius: var(--avatar-radius);
+  background: var(--avatar-bg);
+  color: var(--avatar-color);
+  overflow: hidden;
+  flex-shrink: 0;
+  font-weight: 500;
+  user-select: none;
+}
+
+.xs { --_size: var(--size-xs); font-size: 10px; }
+.sm { --_size: var(--size-sm); font-size: var(--font-size-xs); }
+.md { --_size: var(--size-md); font-size: var(--font-size-sm); }
+.lg { --_size: var(--size-lg); font-size: var(--font-size-md); }
+.xl { --_size: var(--size-xl); font-size: var(--font-size-lg); }
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.initials {
+  font-size: inherit;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.placeholder {
+  width: 55%;
+  height: 55%;
+  color: var(--avatar-placeholder-color);
+}
+
+/* ========================
+   GROUP
+   ======================== */
+
+.group {
+  display: inline-flex;
+}
+
+.group > * + * {
+  margin-left: -6px;
+  box-shadow: 0 0 0 2px var(--color-background);
+}
+
+.overflowItem {
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+}

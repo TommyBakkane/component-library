@@ -1,0 +1,155 @@
+/* ========================
+   FIELD
+   ======================== */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+/* ========================
+   LABEL
+   ======================== */
+
+.label {
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family-base);
+  color: var(--color-text);
+}
+
+.field:has(.input:disabled) .label {
+  opacity: 0.4;
+}
+
+/* ========================
+   INPUT
+   ======================== */
+
+.input {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+
+  /* scoped size vars — inherited by pseudo-elements */
+  --track-height: var(--slider-track-height-md);
+  --thumb-size: var(--slider-thumb-size-md);
+}
+
+.input[data-size='sm'] {
+  --track-height: var(--slider-track-height-sm);
+  --thumb-size: var(--slider-thumb-size-sm);
+}
+
+.input[data-size='lg'] {
+  --track-height: var(--slider-track-height-lg);
+  --thumb-size: var(--slider-thumb-size-lg);
+}
+
+.input:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ========================
+   TRACK — WebKit
+   ======================== */
+
+.input::-webkit-slider-runnable-track {
+  width: 100%;
+  height: var(--track-height);
+  border-radius: var(--radius-full);
+  background: linear-gradient(
+    to right,
+    var(--slider-fill-bg) 0%,
+    var(--slider-fill-bg) var(--pct, 0%),
+    var(--slider-track-bg) var(--pct, 0%),
+    var(--slider-track-bg) 100%
+  );
+}
+
+/* ========================
+   TRACK — Firefox
+   ======================== */
+
+.input::-moz-range-track {
+  width: 100%;
+  height: var(--track-height);
+  border-radius: var(--radius-full);
+  background: var(--slider-track-bg);
+}
+
+.input::-moz-range-progress {
+  height: var(--track-height);
+  background: var(--slider-fill-bg);
+  border-radius: var(--radius-full);
+}
+
+/* ========================
+   THUMB — WebKit
+   ======================== */
+
+.input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  border-radius: 50%;
+  background: var(--slider-thumb-bg);
+  border: 2px solid var(--slider-thumb-border);
+  box-shadow: var(--shadow-xs);
+  margin-top: calc((var(--track-height) - var(--thumb-size)) / 2);
+  cursor: pointer;
+  transition: box-shadow 120ms ease;
+}
+
+.input::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--slider-thumb-border) 18%, transparent);
+}
+
+/* ========================
+   THUMB — Firefox
+   ======================== */
+
+.input::-moz-range-thumb {
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  border-radius: 50%;
+  background: var(--slider-thumb-bg);
+  border: 2px solid var(--slider-thumb-border);
+  box-shadow: var(--shadow-xs);
+  cursor: pointer;
+  transition: box-shadow 120ms ease;
+}
+
+.input::-moz-range-thumb:hover {
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--slider-thumb-border) 18%, transparent);
+}
+
+/* ========================
+   FOCUS
+   ======================== */
+
+.input:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--slider-thumb-border) 25%, transparent);
+}
+
+.input:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--slider-thumb-border) 25%, transparent);
+}
+
+/* ========================
+   HINT / ERROR
+   ======================== */
+
+.hint {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.error {
+  font-size: var(--font-size-xs);
+  color: var(--input-error-color);
+}

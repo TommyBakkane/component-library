@@ -1,0 +1,139 @@
+/* ========================
+   FIELD
+   ======================== */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+/* ========================
+   LABEL
+   ======================== */
+
+.label {
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family-base);
+  color: var(--color-text);
+}
+
+.field:has(.wrapper input:disabled) .label {
+  opacity: 0.4;
+}
+
+/* ========================
+   STEPPER WRAPPER
+   ======================== */
+
+.wrapper {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--input-border);
+  border-radius: var(--input-radius);
+  background: var(--input-bg);
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+  overflow: hidden;
+}
+
+.field[data-error] .wrapper {
+  border-color: var(--input-error-color);
+}
+
+.wrapper:focus-within {
+  border-color: var(--input-focus-ring);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--input-focus-ring) 20%, transparent);
+}
+
+.field[data-error] .wrapper:focus-within {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--input-error-color) 20%, transparent);
+}
+
+/* ========================
+   INPUT
+   ======================== */
+
+.input {
+  flex: 1;
+  min-width: 0;
+  min-height: var(--size-lg);
+  padding: 0 var(--spacing-xs);
+  border: none;
+  background: transparent;
+  color: var(--color-text);
+  font-size: var(--font-size-md);
+  font-family: var(--font-family-base);
+  text-align: center;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.input:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* hide browser-native spinners */
+.input::-webkit-inner-spin-button,
+.input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* ========================
+   STEPPER BUTTONS
+   ======================== */
+
+.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-md);
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+
+.stepper:hover:not(:disabled) {
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.stepper:first-child {
+  border-right: 1px solid var(--input-border);
+}
+
+.stepper:last-child {
+  border-left: 1px solid var(--input-border);
+}
+
+.stepper:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.stepper svg {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+}
+
+/* ========================
+   HINT / ERROR MESSAGE
+   ======================== */
+
+.hint {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.error {
+  font-size: var(--font-size-xs);
+  color: var(--input-error-color);
+}

@@ -2,6 +2,8 @@
   position: relative;
   cursor: pointer;
   white-space: nowrap;
+  font-weight: 500;
+  font-family: var(--font-family-base);
 
   border: 1px solid var(--button-border);
   border-radius: var(--button-radius);
@@ -12,7 +14,8 @@
     background-color 150ms ease,
     color 150ms ease,
     border-color 150ms ease,
-    filter 150ms ease;
+    filter 150ms ease,
+    box-shadow 150ms ease;
 }
 
 .button:focus-visible {
@@ -25,14 +28,19 @@
   cursor: not-allowed;
 }
 
-.button[data-loading='true'] {
+.button[data-loading] {
   cursor: progress;
 }
 
+/* =========================
+   VARIANTS
+   ========================= */
+
 .primary {
   --button-bg: var(--color-primary);
-  --button-color: #fff;
+  --button-text-color: #fff;
   --button-border: transparent;
+  box-shadow: var(--button-primary-shadow);
 }
 
 .primary:not(:disabled):hover {
@@ -41,6 +49,7 @@
 
 .primary:not(:disabled):active {
   filter: var(--button-active-filter);
+  box-shadow: none;
 }
 
 .outline {
@@ -52,7 +61,7 @@
 .outline:not(:disabled):hover {
   background-color: color-mix(
     in srgb,
-    var(--button-outline-color) 10%,
+    var(--button-outline-color) 8%,
     transparent
   );
 }
@@ -60,7 +69,7 @@
 .outline:not(:disabled):active {
   background-color: color-mix(
     in srgb,
-    var(--button-outline-color) 18%,
+    var(--button-outline-color) 14%,
     transparent
   );
 }
@@ -74,7 +83,7 @@
 .ghost:not(:disabled):hover {
   background-color: color-mix(
     in srgb,
-    var(--button-ghost-color) 10%,
+    var(--button-ghost-color) 8%,
     transparent
   );
 }
@@ -82,7 +91,7 @@
 .ghost:not(:disabled):active {
   background-color: color-mix(
     in srgb,
-    var(--button-ghost-color) 18%,
+    var(--button-ghost-color) 14%,
     transparent
   );
 }
@@ -91,6 +100,7 @@
   --button-bg: var(--color-danger);
   --button-text-color: #fff;
   --button-border: transparent;
+  box-shadow: 0 1px 2px 0 color-mix(in srgb, var(--color-danger) 35%, transparent);
 }
 
 .danger:not(:disabled):hover {
@@ -99,6 +109,7 @@
 
 .danger:not(:disabled):active {
   filter: var(--button-active-filter);
+  box-shadow: none;
 }
 
 /* =========================
@@ -107,21 +118,25 @@
 
 .small {
   height: var(--size-sm);
-  padding: 0 var(--spacing-sm);
+  padding: 0 var(--spacing-md);
   font-size: var(--font-size-sm);
 }
 
 .medium {
   height: var(--size-md);
-  padding: 0 var(--spacing-md);
+  padding: 0 var(--spacing-lg);
   font-size: var(--font-size-md);
 }
 
 .large {
   height: var(--size-lg);
-  padding: 0 var(--spacing-lg);
+  padding: 0 var(--spacing-xl);
   font-size: var(--font-size-lg);
 }
+
+/* =========================
+   CONTENT & ICONS
+   ========================= */
 
 .content {
   display: inline-flex;
@@ -149,6 +164,7 @@
 
 .spinner {
   position: absolute;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -161,12 +177,12 @@
     transform 180ms ease;
 }
 
-.button[data-loading='true'] .content {
+.button[data-loading] .content {
   opacity: 0;
   transform: translateY(-2px);
 }
 
-.button[data-loading='true'] .spinner {
+.button[data-loading] .spinner {
   opacity: 1;
   transform: scale(1);
 }

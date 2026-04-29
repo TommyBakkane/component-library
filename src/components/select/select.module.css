@@ -1,0 +1,141 @@
+/* ========================
+   FIELD
+   ======================== */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+/* ========================
+   ON-LINE VARIANT
+   label breaks through the top border
+   ======================== */
+
+.field[data-variant='on-line'] {
+  position: relative;
+  padding-top: calc(var(--font-size-xs) / 2);
+}
+
+.field[data-variant='on-line'] .label {
+  position: absolute;
+  top: calc(var(--font-size-xs) / 2);
+  left: var(--spacing-sm);
+  transform: translateY(-50%);
+  padding: 0 var(--spacing-xs);
+  background: var(--input-label-bg);
+  font-size: var(--font-size-xs);
+  line-height: 1;
+  color: var(--color-text-muted);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ========================
+   INSIDE VARIANT
+   label is absolutely positioned inside the select
+   ======================== */
+
+.field[data-variant='inside'] {
+  position: relative;
+}
+
+.field[data-variant='inside'] .label {
+  position: absolute;
+  top: var(--spacing-xs);
+  left: calc(var(--spacing-sm) + 1px);
+  font-size: var(--font-size-xs);
+  line-height: 1;
+  color: var(--color-text-muted);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.field[data-variant='inside'] .select {
+  min-height: var(--size-xl);
+  padding-top: calc(var(--spacing-xs) + var(--font-size-xs) + var(--spacing-xs));
+  padding-bottom: var(--spacing-xs);
+}
+
+/* ========================
+   LABEL (outside variant default)
+   ======================== */
+
+.label {
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family-base);
+  color: var(--color-text);
+}
+
+/* ========================
+   SELECT
+   ======================== */
+
+.select {
+  width: 100%;
+  min-height: var(--size-lg);
+  padding: 0 calc(var(--spacing-sm) + var(--icon-md) + var(--spacing-xs)) 0 var(--spacing-sm);
+  border: 1px solid var(--input-border);
+  border-radius: var(--input-radius);
+  background-color: var(--input-bg);
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="%2364748b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right var(--spacing-sm) center;
+  background-size: var(--icon-md);
+  color: var(--color-text);
+  font-size: var(--font-size-md);
+  font-family: var(--font-family-base);
+  box-sizing: border-box;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.select:focus-visible {
+  border-color: var(--input-focus-ring);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--input-focus-ring) 20%, transparent);
+}
+
+.select:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ========================
+   STATES
+   ======================== */
+
+.field[data-error] .select {
+  border-color: var(--input-error-color);
+}
+
+.field[data-error] .select:focus-visible {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--input-error-color) 20%, transparent);
+}
+
+.field[data-error][data-variant='on-line'] .label,
+.field[data-error][data-variant='inside'] .label {
+  color: var(--input-error-color);
+}
+
+.field:has(.select:disabled) .label {
+  opacity: 0.4;
+}
+
+/* ========================
+   HINT / ERROR MESSAGE
+   ======================== */
+
+.hint {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.error {
+  font-size: var(--font-size-xs);
+  color: var(--input-error-color);
+}

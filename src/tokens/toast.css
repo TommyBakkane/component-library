@@ -1,0 +1,10 @@
+:root {
+  --toast-bg: var(--color-on-background);
+  --toast-color: var(--color-background);
+  --toast-radius: var(--radius-md);
+  --toast-shadow: var(--shadow-md);
+  --toast-success-bg: var(--color-success);
+  --toast-error-bg: var(--color-danger);
+  --toast-warning-bg: var(--color-warning);
+  --toast-info-bg: var(--color-info);
+}

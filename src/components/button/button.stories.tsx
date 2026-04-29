@@ -18,7 +18,7 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['primary', 'secondary', 'outline', 'ghost', 'danger'],
+      options: ['primary', 'outline', 'ghost', 'danger'],
     },
     size: {
       control: 'select',
@@ -80,9 +80,6 @@ export const AllVariants: Story = {
     <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
       <Button {...args} variant="primary">
         Primary
-      </Button>
-      <Button {...args} variant="secondary">
-        Secondary
       </Button>
       <Button {...args} variant="outline">
         Outline

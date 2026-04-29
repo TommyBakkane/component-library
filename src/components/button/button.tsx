@@ -1,8 +1,8 @@
 import { Spinner } from '../spinner/spinner';
 import styles from './button.module.css';
 
-interface Props extends React.ComponentPropsWithRef<'button'> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger';
+export interface ButtonProps extends React.ComponentPropsWithRef<'button'> {
+  variant?: 'primary' | 'outline' | 'ghost' | 'danger';
   size?: 'small' | 'medium' | 'large';
   loading?: boolean;
   leftIcon?: React.ReactNode;
@@ -20,13 +20,13 @@ export const Button = ({
   className,
   children,
   ...props
-}: Props) => {
+}: ButtonProps) => {
   return (
     <button
       type={type}
       disabled={disabled || loading}
       aria-busy={loading}
-      data-loading={loading}
+      data-loading={loading || undefined}
       className={[styles.button, styles[variant], styles[size], className]
         .filter(Boolean)
         .join(' ')}
@@ -46,7 +46,7 @@ export const Button = ({
         )}
       </span>
 
-      <span className={styles.spinner}>
+      <span className={styles.spinner} aria-hidden="true">
         <Spinner />
       </span>
     </button>

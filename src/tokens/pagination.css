@@ -1,0 +1,7 @@
+:root {
+  --pagination-size: var(--size-sm);
+  --pagination-active-bg: var(--color-primary);
+  --pagination-active-color: var(--color-on-primary);
+  --pagination-hover-bg: var(--color-surface);
+  --pagination-radius: var(--radius-sm);
+}

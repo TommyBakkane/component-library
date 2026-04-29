@@ -1,0 +1,6 @@
+:root {
+  --tooltip-bg: var(--color-on-background);
+  --tooltip-color: var(--color-background);
+  --tooltip-radius: var(--radius-sm);
+  --tooltip-shadow: var(--shadow-sm);
+}

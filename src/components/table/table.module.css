@@ -1,0 +1,94 @@
+/* ========================
+   WRAPPER
+   ======================== */
+
+.wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--table-border);
+  border-radius: var(--radius-lg);
+}
+
+/* ========================
+   TABLE
+   ======================== */
+
+.table {
+  --_cell-padding: var(--table-cell-padding-md);
+  --_header-padding: var(--table-header-padding-md);
+
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+}
+
+.sm {
+  --_cell-padding: var(--table-cell-padding-sm);
+  --_header-padding: var(--table-header-padding-sm);
+}
+
+/* ========================
+   HEAD
+   ======================== */
+
+.head {
+  background-color: var(--table-header-bg);
+}
+
+.header {
+  padding: var(--_header-padding);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  white-space: nowrap;
+  border-bottom: 2px solid var(--table-border);
+}
+
+/* ========================
+   BODY
+   ======================== */
+
+.body .row {
+  border-bottom: 1px solid var(--table-border);
+  transition: background-color 100ms ease;
+}
+
+.body .row:last-child {
+  border-bottom: none;
+}
+
+.body .row:hover {
+  background-color: var(--table-row-hover-bg);
+}
+
+.table[data-striped] .body .row:nth-child(even) {
+  background-color: var(--table-stripe-bg);
+}
+
+/* ========================
+   CELL
+   ======================== */
+
+.cell {
+  padding: var(--_cell-padding);
+  vertical-align: middle;
+  line-height: 1.5;
+}
+
+/* ========================
+   ALIGNMENT
+   ======================== */
+
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}

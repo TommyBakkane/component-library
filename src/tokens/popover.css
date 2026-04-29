@@ -1,0 +1,6 @@
+:root {
+  --popover-bg: var(--color-background);
+  --popover-border: var(--color-border);
+  --popover-radius: var(--radius-md);
+  --popover-max-width: 320px;
+}

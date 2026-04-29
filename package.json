@@ -29,6 +29,7 @@
   ],
   "scripts": {
     "build": "vite build",
+    "test": "vitest",
     "lint": "eslint .",
     "prepublishOnly": "npm run build",
     "storybook": "storybook dev -p 6006",

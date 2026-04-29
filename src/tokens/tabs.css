@@ -1,0 +1,7 @@
+:root {
+  --tabs-border: var(--color-border);
+  --tabs-active-color: var(--color-primary);
+  --tabs-active-border: var(--color-primary);
+  --tabs-hover-bg: var(--color-surface);
+  --tabs-radius: var(--radius-sm);
+}

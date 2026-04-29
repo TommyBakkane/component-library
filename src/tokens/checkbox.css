@@ -1,0 +1,9 @@
+:root {
+  --checkbox-size: 16px;
+  --checkbox-radius: var(--radius-sm);
+  --checkbox-border: var(--color-border);
+  --checkbox-bg: var(--color-background);
+  --checkbox-checked-bg: var(--color-primary);
+  --checkbox-checked-border: var(--color-primary);
+  --checkbox-focus-ring: var(--color-primary);
+}

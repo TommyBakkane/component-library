@@ -1,0 +1,138 @@
+/* ========================
+   FIELD
+   ======================== */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+/* ========================
+   ON-LINE VARIANT
+   label breaks through the top border
+   ======================== */
+
+.field[data-variant='on-line'] {
+  position: relative;
+  padding-top: calc(var(--font-size-xs) / 2);
+}
+
+.field[data-variant='on-line'] .label {
+  position: absolute;
+  top: calc(var(--font-size-xs) / 2);
+  left: var(--spacing-sm);
+  transform: translateY(-50%);
+  padding: 0 var(--spacing-xs);
+  background: var(--input-label-bg);
+  font-size: var(--font-size-xs);
+  line-height: 1;
+  color: var(--color-text-muted);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ========================
+   INSIDE VARIANT
+   label is absolutely positioned over the input;
+   input has padding-top to clear it
+   ======================== */
+
+.field[data-variant='inside'] {
+  position: relative;
+}
+
+.field[data-variant='inside'] .label {
+  position: absolute;
+  top: var(--spacing-xs);
+  left: calc(var(--spacing-sm) + 1px);
+  font-size: var(--font-size-xs);
+  line-height: 1;
+  color: var(--color-text-muted);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.field[data-variant='inside'] .input {
+  min-height: var(--size-xl);
+  padding-top: calc(var(--spacing-xs) + var(--font-size-xs) + var(--spacing-xs));
+  padding-bottom: var(--spacing-xs);
+}
+
+/* ========================
+   LABEL (outside variant default)
+   ======================== */
+
+.label {
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family-base);
+  color: var(--color-text);
+}
+
+/* ========================
+   INPUT
+   ======================== */
+
+.input {
+  width: 100%;
+  min-height: var(--size-lg);
+  padding: 0 var(--spacing-sm);
+  border: 1px solid var(--input-border);
+  border-radius: var(--input-radius);
+  background: var(--input-bg);
+  color: var(--color-text);
+  font-size: var(--font-size-md);
+  font-family: var(--font-family-base);
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.input:focus-visible {
+  border-color: var(--input-focus-ring);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--input-focus-ring) 20%, transparent);
+}
+
+.input:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ========================
+   STATES
+   ======================== */
+
+.field[data-error] .input {
+  border-color: var(--input-error-color);
+}
+
+.field[data-error] .input:focus-visible {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--input-error-color) 20%, transparent);
+}
+
+.field[data-error][data-variant='on-line'] .label,
+.field[data-error][data-variant='inside'] .label {
+  color: var(--input-error-color);
+}
+
+.field:has(.input:disabled) .label {
+  opacity: 0.4;
+}
+
+/* ========================
+   HINT / ERROR MESSAGE
+   ======================== */
+
+.hint {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.error {
+  font-size: var(--font-size-xs);
+  color: var(--input-error-color);
+}

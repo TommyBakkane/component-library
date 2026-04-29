@@ -1,21 +1,25 @@
 import { Alert } from '../../icons/alert';
 import styles from './empty.module.css';
 
-interface Props {
+export interface EmptyStateProps {
   title: string;
   description?: string;
+  icon?: React.ReactNode;
+  children?: React.ReactNode;
+  className?: string;
 }
 
-export function EmptyState({ title, description }: Props) {
+export function EmptyState({ title, description, icon, children, className }: EmptyStateProps) {
   return (
-    <div className={styles.container}>
-      <div className={styles.icon}>
-        <Alert />
+    <div className={[styles.container, className].filter(Boolean).join(' ')}>
+      <div className={styles.icon} aria-hidden="true">
+        {icon ?? <Alert />}
       </div>
       <span className={styles.title}>{title}</span>
       {description && (
-        <label className={styles.description}>{description}</label>
+        <p className={styles.description}>{description}</p>
       )}
+      {children}
     </div>
   );
 }

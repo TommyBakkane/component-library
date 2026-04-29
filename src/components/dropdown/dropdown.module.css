@@ -1,0 +1,92 @@
+/* ========================
+   MENU (portal, position: fixed)
+   ======================== */
+
+.menu {
+  position: fixed;
+  z-index: 500;
+  background: var(--dropdown-bg);
+  border: 1px solid var(--dropdown-border);
+  border-radius: var(--dropdown-radius);
+  box-shadow: var(--dropdown-shadow);
+  padding: var(--spacing-xs) 0;
+  overflow: hidden;
+  animation: menu-in 150ms ease;
+}
+
+@keyframes menu-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu {
+    animation: none;
+  }
+}
+
+/* ========================
+   ITEM
+   ======================== */
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  width: 100%;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family-base);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color 100ms ease;
+  white-space: nowrap;
+}
+
+.item:hover:not(:disabled) {
+  background: var(--dropdown-item-hover-bg);
+}
+
+.item:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+}
+
+.item:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.item.danger {
+  color: var(--dropdown-item-danger-color);
+}
+
+.item.danger:hover:not(:disabled) {
+  background: var(--dropdown-item-danger-hover-bg);
+}
+
+.itemIcon {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.itemIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ========================
+   SEPARATOR
+   ======================== */
+
+.separator {
+  height: 1px;
+  background: var(--dropdown-border);
+  margin: var(--spacing-xs) 0;
+}

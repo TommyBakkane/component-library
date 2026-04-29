@@ -1,0 +1,109 @@
+/* ========================
+   CONTAINER
+   ======================== */
+
+.container {
+  position: fixed;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg);
+  pointer-events: none;
+  max-width: 400px;
+  width: 100%;
+}
+
+.container[data-position='bottom-right'] { bottom: 0; right: 0; align-items: flex-end; }
+.container[data-position='bottom-left']  { bottom: 0; left: 0;  align-items: flex-start; }
+.container[data-position='top-right']    { top: 0;    right: 0; align-items: flex-end; }
+.container[data-position='top-left']     { top: 0;    left: 0;  align-items: flex-start; }
+
+.container[data-position='bottom-center'] {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+}
+
+.container[data-position='top-center'] {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+}
+
+/* ========================
+   TOAST
+   ======================== */
+
+.toast {
+  background: var(--toast-bg);
+  color: var(--toast-color);
+  border-radius: var(--toast-radius);
+  box-shadow: var(--toast-shadow);
+  padding: var(--spacing-sm) var(--spacing-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  pointer-events: all;
+  animation: toast-in 250ms ease;
+  min-width: 280px;
+  max-width: 380px;
+}
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast {
+    animation: none;
+  }
+}
+
+.success { background: var(--toast-success-bg); }
+.error   { background: var(--toast-error-bg); }
+.warning { background: var(--toast-warning-bg); }
+.info    { background: var(--toast-info-bg); }
+
+.icon {
+  flex-shrink: 0;
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+  display: flex;
+  align-items: center;
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.message {
+  flex: 1;
+  font-size: var(--font-size-sm);
+  line-height: 1.4;
+}
+
+.dismiss {
+  background: none;
+  border: none;
+  padding: 2px;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.6;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-xs);
+  transition: opacity 150ms ease;
+}
+
+.dismiss:hover { opacity: 1; }
+
+.dismiss svg {
+  width: 12px;
+  height: 12px;
+}

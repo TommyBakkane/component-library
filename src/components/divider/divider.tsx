@@ -1,15 +1,15 @@
 import styles from './divider.module.css';
 
-interface Props {
+export interface DividerProps {
   label?: string;
 }
 
-export const Divider = ({ label }: Props) => {
+export const Divider = ({ label }: DividerProps) => {
   if (label) {
     return (
-      <div className={styles.withLabel}>
+      <div role="separator" aria-label={label} className={styles.withLabel}>
         <span className={styles.line} />
-        <label className={styles.label}>{label}</label>
+        <span className={styles.label} aria-hidden="true">{label}</span>
         <span className={styles.line} />
       </div>
     );

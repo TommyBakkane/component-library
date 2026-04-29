@@ -19,6 +19,11 @@
   padding: var(--spacing-sm) var(--spacing-md);
 }
 
+.primary {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
 .success {
   background: var(--color-success-soft);
   color: var(--color-success);

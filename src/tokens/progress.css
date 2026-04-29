@@ -1,0 +1,7 @@
+:root {
+  --progress-track-bg: var(--color-border);
+  --progress-fill-bg: var(--color-primary);
+  --progress-track-height-sm: 4px;
+  --progress-track-height-md: 8px;
+  --progress-track-height-lg: 12px;
+}

@@ -1,0 +1,7 @@
+:root {
+  --drawer-backdrop: rgb(0 0 0 / 0.4);
+  --drawer-bg: var(--color-background);
+  --drawer-width-sm: 320px;
+  --drawer-width-md: 480px;
+  --drawer-width-lg: 640px;
+}

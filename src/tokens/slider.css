@@ -1,0 +1,12 @@
+:root {
+  --slider-track-bg: var(--color-border);
+  --slider-fill-bg: var(--color-primary);
+  --slider-thumb-bg: var(--color-background);
+  --slider-thumb-border: var(--color-primary);
+  --slider-track-height-sm: 3px;
+  --slider-track-height-md: 5px;
+  --slider-track-height-lg: 8px;
+  --slider-thumb-size-sm: 14px;
+  --slider-thumb-size-md: 18px;
+  --slider-thumb-size-lg: 22px;
+}

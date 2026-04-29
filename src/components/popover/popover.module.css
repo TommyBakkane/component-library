@@ -1,0 +1,35 @@
+.popover {
+  position: fixed;
+  background: var(--popover-bg);
+  border: 1px solid var(--popover-border);
+  border-radius: var(--popover-radius);
+  box-shadow: var(--shadow-md);
+  z-index: 999;
+  max-width: var(--popover-max-width);
+  animation: popover-in 140ms ease;
+}
+
+@keyframes popover-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .popover {
+    animation: none;
+  }
+}
+
+/* ========================
+   PLACEMENT TRANSFORMS
+   ======================== */
+
+.popover[data-placement='bottom']     { transform: translateX(-50%); }
+.popover[data-placement='bottom-end'] { transform: translateX(-100%); }
+
+.popover[data-placement='top']        { transform: translate(-50%, -100%); }
+.popover[data-placement='top-start']  { transform: translateY(-100%); }
+.popover[data-placement='top-end']    { transform: translate(-100%, -100%); }
+
+.popover[data-placement='left']       { transform: translate(-100%, -50%); }
+.popover[data-placement='right']      { transform: translateY(-50%); }

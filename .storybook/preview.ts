@@ -1,10 +1,17 @@
+/// <reference types="vite/client" />
 import type { Preview } from '@storybook/react-vite';
-import '../src/tokens/base.css';
-import '../src/tokens/button.css';
-import '../src/tokens/badge.css';
+import '../src/index';
 
 const preview: Preview = {
   parameters: {
+    backgrounds: {
+      default: 'white',
+      values: [
+        { name: 'white', value: '#ffffff' },
+        { name: 'surface', value: '#f8fafc' },
+      ],
+    },
+
     controls: {
       matchers: {
         color: /(background|color)$/i,

@@ -1,0 +1,5 @@
+:root {
+  --tag-bg: var(--color-surface);
+  --tag-color: var(--color-text);
+  --tag-border: var(--color-border);
+}
