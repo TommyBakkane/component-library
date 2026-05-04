@@ -2,8 +2,10 @@
   --checkbox-size: 16px;
   --checkbox-radius: var(--radius-sm);
   --checkbox-border: var(--color-border);
-  --checkbox-bg: var(--color-background);
+  --checkbox-bg: var(--color-surface);
   --checkbox-checked-bg: var(--color-primary);
   --checkbox-checked-border: var(--color-primary);
   --checkbox-focus-ring: var(--color-primary);
+  --checkbox-checkmark: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="%23ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  --checkbox-indeterminate: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7" stroke="%23ffffff" stroke-width="1.5" stroke-linecap="round"/></svg>');
 }

@@ -8,6 +8,7 @@
   -webkit-overflow-scrolling: touch;
   border: 1px solid var(--table-border);
   border-radius: var(--radius-lg);
+  background-color: var(--color-background);
 }
 
 /* ========================

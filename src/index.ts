@@ -16,6 +16,8 @@ import './tokens/dropdown.css';
 import './tokens/accordion.css';
 import './tokens/pagination.css';
 import './tokens/progress.css';
+import './tokens/select.css';
+import './tokens/skeleton.css';
 import './tokens/tag.css';
 import './tokens/drawer.css';
 import './tokens/slider.css';
@@ -163,7 +165,7 @@ export type {
 export { Popover } from './components/popover/popover';
 export type { PopoverProps, PopoverPlacement } from './components/popover/popover';
 
-export { ThemeProvider } from './components/theme-provider/theme-provider';
+export { ThemeProvider } from './theme/theme-provider';
 export type {
   Theme,
   ThemeColors,
@@ -173,7 +175,7 @@ export type {
   ThemeSize,
   ThemeShadow,
   ThemeProviderProps,
-} from './components/theme-provider/theme-provider';
+} from './theme/theme-provider';
 
 export { Flex } from './layout/flex/flex';
 export type { FlexProps } from './layout/flex/flex';

@@ -627,6 +627,74 @@ import { Grid } from '@tommybakkane/component-library';
 
 ---
 
+### Link
+
+```tsx
+import { Link } from '@tommybakkane/component-library';
+
+<Link href="/about">About</Link>
+<Link href="/about" variant="muted" underline="always">Muted link</Link>
+```
+
+| Prop | Type | Default |
+|------|------|---------|
+| `variant` | `'default' \| 'muted'` | `'default'` |
+| `underline` | `'hover' \| 'always' \| 'none'` | `'hover'` |
+
+Extends all native `<a>` attributes.
+
+---
+
+## Theming
+
+### Dark mode
+
+The library automatically adapts to the user's OS/browser preference via `@media (prefers-color-scheme: dark)`. No configuration required — import the stylesheet and dark mode works out of the box.
+
+### ThemeProvider
+
+Override any design token for a subtree of your app. All fields are optional — only supply what you want to change.
+
+```tsx
+import { ThemeProvider, type Theme } from '@tommybakkane/component-library';
+
+const myTheme: Theme = {
+  color: {
+    primary: '#7c3aed',
+    primarySoft: '#ede9fe',
+    onPrimary: '#ffffff',
+  },
+  radius: {
+    sm: '3px',
+    md: '4px',
+    lg: '6px',
+  },
+  fontFamilyBase: '"DM Sans", sans-serif',
+};
+
+<ThemeProvider theme={myTheme}>
+  <App />
+</ThemeProvider>
+```
+
+Multiple `ThemeProvider`s can be nested — each one only affects its own subtree, making it easy to brand separate sections of a page differently.
+
+**`Theme` shape:**
+
+| Key | Overrides |
+|-----|-----------|
+| `color` | All `--color-*` tokens (primary, background, surface, semantic, text, border) |
+| `radius` | All `--radius-*` tokens (xs → full) |
+| `spacing` | All `--spacing-*` tokens (xs → xl) |
+| `fontSize` | All `--font-size-*` tokens (xs → xl) |
+| `size` | All `--size-*` tokens (component heights, xs → xl) |
+| `shadow` | All `--shadow-*` tokens (xs, sm, md) |
+| `fontFamilyBase` | `--font-family-base` |
+
+All sub-interfaces (`ThemeColors`, `ThemeRadius`, `ThemeSpacing`, etc.) are exported individually for typed partial overrides.
+
+---
+
 ## TypeScript
 
 All prop interfaces are exported and can be imported directly:
@@ -639,6 +707,9 @@ import type {
   ModalProps,
   DrawerProps,
   DropdownItemProps,
+  Theme,
+  ThemeColors,
+  ThemeProviderProps,
   // ... etc
 } from '@tommybakkane/component-library';
 ```

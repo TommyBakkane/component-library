@@ -1,0 +1,9 @@
+:root {
+  --select-chevron: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="%2364748b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --select-chevron: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="%2394a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  }
+}

@@ -4,7 +4,7 @@
   --switch-thumb-size: 16px;
   --switch-track-bg: var(--color-border);
   --switch-track-checked-bg: var(--color-primary);
-  --switch-thumb-bg: #ffffff;
+  --switch-thumb-bg: var(--color-on-primary);
   --switch-focus-ring: var(--color-primary);
   --switch-radius: var(--radius-full);
 }

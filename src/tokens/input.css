@@ -1,6 +1,6 @@
 :root {
   --input-border: var(--color-border);
-  --input-bg: var(--color-background);
+  --input-bg: var(--color-surface);
   --input-radius: var(--radius-md);
   --input-focus-ring: var(--color-primary);
   --input-error-color: var(--color-danger);

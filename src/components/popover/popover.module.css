@@ -1,6 +1,7 @@
 .popover {
   position: fixed;
   background: var(--popover-bg);
+  color: var(--color-text);
   border: 1px solid var(--popover-border);
   border-radius: var(--popover-radius);
   box-shadow: var(--shadow-md);

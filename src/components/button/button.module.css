@@ -38,7 +38,7 @@
 
 .primary {
   --button-bg: var(--color-primary);
-  --button-text-color: #fff;
+  --button-text-color: var(--color-on-primary);
   --button-border: transparent;
   box-shadow: var(--button-primary-shadow);
 }
@@ -98,7 +98,7 @@
 
 .danger {
   --button-bg: var(--color-danger);
-  --button-text-color: #fff;
+  --button-text-color: var(--color-on-primary);
   --button-border: transparent;
   box-shadow: 0 1px 2px 0 color-mix(in srgb, var(--color-danger) 35%, transparent);
 }

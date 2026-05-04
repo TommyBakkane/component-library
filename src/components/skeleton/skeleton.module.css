@@ -1,7 +1,4 @@
 .shimmer {
-  --skeleton-shimmer: rgba(255, 255, 255, 0.85);
-  --skeleton-shimmer-edge: rgba(255, 255, 255, 0.08);
-
   width: 100%;
   height: 100%;
   position: relative;

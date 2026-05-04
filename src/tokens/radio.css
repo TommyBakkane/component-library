@@ -5,4 +5,5 @@
   --radio-checked-bg: var(--color-primary);
   --radio-checked-border: var(--color-primary);
   --radio-focus-ring: var(--color-primary);
+  --radio-dot-color: var(--color-on-primary);
 }
