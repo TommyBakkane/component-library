@@ -20,9 +20,13 @@ import './tokens/tag.css';
 import './tokens/drawer.css';
 import './tokens/slider.css';
 import './tokens/popover.css';
+import './tokens/link.css';
 
 export { Button } from './components/button/button';
 export type { ButtonProps } from './components/button/button';
+
+export { Link } from './components/link/link';
+export type { LinkProps } from './components/link/link';
 
 export { Badge } from './components/badge/badge';
 export type { BadgeProps } from './components/badge/badge';
@@ -158,6 +162,18 @@ export type {
 
 export { Popover } from './components/popover/popover';
 export type { PopoverProps, PopoverPlacement } from './components/popover/popover';
+
+export { ThemeProvider } from './components/theme-provider/theme-provider';
+export type {
+  Theme,
+  ThemeColors,
+  ThemeRadius,
+  ThemeSpacing,
+  ThemeFontSize,
+  ThemeSize,
+  ThemeShadow,
+  ThemeProviderProps,
+} from './components/theme-provider/theme-provider';
 
 export { Flex } from './layout/flex/flex';
 export type { FlexProps } from './layout/flex/flex';

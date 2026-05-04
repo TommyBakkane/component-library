@@ -1,0 +1,33 @@
+.link {
+  color: var(--link-color);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  cursor: pointer;
+  transition: opacity 150ms ease;
+}
+
+.link:hover {
+  opacity: 0.75;
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--link-focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+.default {
+  --link-color: var(--color-primary);
+  --link-focus-ring: var(--color-primary);
+}
+
+.muted {
+  --link-color: var(--color-text-muted);
+  --link-focus-ring: var(--color-text-muted);
+}
+
+.danger {
+  --link-color: var(--color-danger);
+  --link-focus-ring: var(--color-danger);
+}

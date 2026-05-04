@@ -1,0 +1,6 @@
+:root {
+  --link-color: var(--color-primary);
+  --link-color-muted: var(--color-text-muted);
+  --link-color-danger: var(--color-danger);
+  --link-focus-ring: var(--color-primary);
+}
