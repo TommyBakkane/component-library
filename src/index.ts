@@ -158,3 +158,6 @@ export type { FlexProps } from './layout/flex/flex';
 
 export { Grid } from './layout/grid/grid';
 export type { GridProps } from './layout/grid/grid';
+
+export { Page } from './layout/page/page';
+export type { PageProps } from './layout/page/page';
