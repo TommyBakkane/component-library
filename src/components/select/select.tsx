@@ -1,4 +1,4 @@
-import { createContext, forwardRef, useContext, useId } from 'react';
+import { createContext, forwardRef, useCallback, useContext, useEffect, useId, useState } from 'react';
 import styles from './select.module.css';
 
 type LabelVariant = 'outside' | 'on-line' | 'inside';
@@ -8,6 +8,9 @@ interface FieldContextValue {
   error?: string;
   disabled?: boolean;
   variant: LabelVariant;
+  hasHint: boolean;
+  onHintMount: () => void;
+  onHintUnmount: () => void;
 }
 
 const FieldContext = createContext<FieldContextValue | null>(null);
@@ -44,8 +47,11 @@ export interface SelectErrorProps {
 
 const Field = ({ variant = 'outside', error, disabled, children, className }: SelectFieldProps) => {
   const id = useId();
+  const [hasHint, setHasHint] = useState(false);
+  const onHintMount = useCallback(() => setHasHint(true), []);
+  const onHintUnmount = useCallback(() => setHasHint(false), []);
   return (
-    <FieldContext.Provider value={{ id, error, disabled, variant }}>
+    <FieldContext.Provider value={{ id, error, disabled, variant, hasHint, onHintMount, onHintUnmount }}>
       <div
         className={[styles.field, className].filter(Boolean).join(' ')}
         data-variant={variant}
@@ -67,8 +73,8 @@ const Label = ({ children, className }: SelectLabelProps) => {
 };
 
 const SelectRoot = forwardRef<HTMLSelectElement, SelectProps>(({ className, disabled, ...props }, ref) => {
-  const { id, error, disabled: fieldDisabled } = useField();
-  const describedBy = [error && `${id}-error`, `${id}-hint`].filter(Boolean).join(' ');
+  const { id, error, disabled: fieldDisabled, hasHint } = useField();
+  const describedBy = [error && `${id}-error`, hasHint && `${id}-hint`].filter(Boolean).join(' ') || undefined;
   return (
     <select
       ref={ref}
@@ -84,7 +90,11 @@ const SelectRoot = forwardRef<HTMLSelectElement, SelectProps>(({ className, disa
 SelectRoot.displayName = 'Select';
 
 const Hint = ({ children, className }: SelectHintProps) => {
-  const { id } = useField();
+  const { id, onHintMount, onHintUnmount } = useField();
+  useEffect(() => {
+    onHintMount();
+    return onHintUnmount;
+  }, [onHintMount, onHintUnmount]);
   return (
     <span id={`${id}-hint`} className={[styles.hint, className].filter(Boolean).join(' ')}>
       {children}

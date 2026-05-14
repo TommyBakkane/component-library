@@ -10,9 +10,9 @@
 }
 
 .sm {
-  --_track-width: 32px;
-  --_track-height: 18px;
-  --_thumb-size: 12px;
+  --_track-width: var(--switch-width-sm);
+  --_track-height: var(--switch-height-sm);
+  --_thumb-size: var(--switch-thumb-size-sm);
 }
 
 /* ========================

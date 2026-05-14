@@ -61,7 +61,7 @@ export const Sizes: Story = {
     return (
       <div style={{ display: 'flex', gap: 8 }}>
         {(['sm', 'md', 'lg'] as const).map(s => (
-          <Button key={s} variant="secondary" onClick={() => setSize(s)}>
+          <Button key={s} variant="outline" onClick={() => setSize(s)}>
             {s.toUpperCase()}
           </Button>
         ))}

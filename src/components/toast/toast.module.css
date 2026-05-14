@@ -104,6 +104,6 @@
 .dismiss:hover { opacity: 1; }
 
 .dismiss svg {
-  width: 12px;
-  height: 12px;
+  width: var(--toast-dismiss-icon-size);
+  height: var(--toast-dismiss-icon-size);
 }

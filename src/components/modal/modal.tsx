@@ -40,17 +40,14 @@ const ModalRoot = ({ open, onClose, size = 'md', children, className }: ModalPro
 
   useEffect(() => {
     if (!open) return;
-    const dialog = dialogRef.current;
-    const focusable = Array.from(
-      dialog?.querySelectorAll<HTMLElement>(
-        'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
-      ) ?? []
-    );
-    focusable[0]?.focus();
+    const FOCUSABLE = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+    dialogRef.current?.querySelector<HTMLElement>(FOCUSABLE)?.focus();
 
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') { onClose(); return; }
-      if (e.key !== 'Tab' || !focusable.length) return;
+      if (e.key !== 'Tab') return;
+      const focusable = Array.from(dialogRef.current?.querySelectorAll<HTMLElement>(FOCUSABLE) ?? []);
+      if (!focusable.length) return;
       const first = focusable[0];
       const last = focusable[focusable.length - 1];
       if (e.shiftKey && document.activeElement === first) {

@@ -8,7 +8,7 @@ export interface AlertProps {
   className?: string;
 }
 
-const icons: Record<string, React.ReactNode> = {
+const icons: Record<'success' | 'error' | 'warning' | 'info', React.ReactNode> = {
   success: (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" aria-hidden="true">
       <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1.5" />

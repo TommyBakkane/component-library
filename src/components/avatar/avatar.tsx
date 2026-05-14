@@ -1,4 +1,4 @@
-import { Children, forwardRef } from 'react';
+import { Children, createContext, forwardRef, useContext } from 'react';
 import styles from './avatar.module.css';
 
 export interface AvatarProps extends React.ComponentPropsWithRef<'span'> {
@@ -15,6 +15,8 @@ export interface AvatarGroupProps {
   className?: string;
 }
 
+const GroupContext = createContext<{ size?: AvatarProps['size'] }>({});
+
 const getInitials = (name: string): string => {
   const parts = name.trim().split(/\s+/);
   if (parts.length === 1) return parts[0][0].toUpperCase();
@@ -22,33 +24,37 @@ const getInitials = (name: string): string => {
 };
 
 const AvatarRoot = forwardRef<HTMLSpanElement, AvatarProps>(
-  ({ src, alt, name, size = 'md', className, ...props }, ref) => (
-    <span
-      ref={ref}
-      className={[styles.root, styles[size], className].filter(Boolean).join(' ')}
-      title={name}
-      aria-label={alt ?? name}
-      {...props}
-    >
-      {src ? (
-        <img src={src} alt={alt ?? name ?? ''} className={styles.image} />
-      ) : name ? (
-        <span className={styles.initials} aria-hidden="true">
-          {getInitials(name)}
-        </span>
-      ) : (
-        <svg
-          className={styles.placeholder}
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path d="M12 12a4.5 4.5 0 100-9 4.5 4.5 0 000 9zm0 1.5c-4.5 0-9 2.25-9 4.5V19.5h18V18c0-2.25-4.5-4.5-9-4.5z" />
-        </svg>
-      )}
-    </span>
-  ),
+  ({ src, alt, name, size, className, ...props }, ref) => {
+    const { size: groupSize } = useContext(GroupContext);
+    const resolvedSize = size ?? groupSize ?? 'md';
+    return (
+      <span
+        ref={ref}
+        className={[styles.root, styles[resolvedSize], className].filter(Boolean).join(' ')}
+        title={name}
+        aria-label={alt ?? name}
+        {...props}
+      >
+        {src ? (
+          <img src={src} alt={alt ?? name ?? ''} className={styles.image} />
+        ) : name ? (
+          <span className={styles.initials} aria-hidden="true">
+            {getInitials(name)}
+          </span>
+        ) : (
+          <svg
+            className={styles.placeholder}
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="M12 12a4.5 4.5 0 100-9 4.5 4.5 0 000 9zm0 1.5c-4.5 0-9 2.25-9 4.5V19.5h18V18c0-2.25-4.5-4.5-9-4.5z" />
+          </svg>
+        )}
+      </span>
+    );
+  },
 );
 AvatarRoot.displayName = 'Avatar';
 
@@ -57,17 +63,19 @@ const Group = ({ children, max, size = 'md', className }: AvatarGroupProps) => {
   const shown = max != null ? items.slice(0, max) : items;
   const overflow = max != null ? items.length - max : 0;
   return (
-    <span className={[styles.group, className].filter(Boolean).join(' ')}>
-      {shown}
-      {overflow > 0 && (
-        <span
-          className={[styles.root, styles[size], styles.overflowItem].filter(Boolean).join(' ')}
-          aria-label={`${overflow} more`}
-        >
-          +{overflow}
-        </span>
-      )}
-    </span>
+    <GroupContext.Provider value={{ size }}>
+      <span className={[styles.group, className].filter(Boolean).join(' ')}>
+        {shown}
+        {overflow > 0 && (
+          <span
+            className={[styles.root, styles[size], styles.overflowItem].filter(Boolean).join(' ')}
+            aria-label={`${overflow} more`}
+          >
+            +{overflow}
+          </span>
+        )}
+      </span>
+    </GroupContext.Provider>
   );
 };
 Group.displayName = 'Avatar.Group';

@@ -2,6 +2,9 @@
   --switch-width: 40px;
   --switch-height: 22px;
   --switch-thumb-size: 16px;
+  --switch-width-sm: 32px;
+  --switch-height-sm: 18px;
+  --switch-thumb-size-sm: 12px;
   --switch-track-bg: var(--color-border);
   --switch-track-checked-bg: var(--color-primary);
   --switch-thumb-bg: var(--color-on-primary);

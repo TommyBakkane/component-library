@@ -1,5 +1,6 @@
 :root {
   --checkbox-size: 16px;
+  --checkbox-size-sm: 14px;
   --checkbox-radius: var(--radius-sm);
   --checkbox-border: var(--color-border);
   --checkbox-bg: var(--color-surface);

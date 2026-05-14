@@ -1,10 +1,13 @@
-import { createContext, forwardRef, useContext, useId, useState } from 'react';
+import { createContext, forwardRef, useCallback, useContext, useEffect, useId, useState } from 'react';
 import styles from './slider.module.css';
 
 interface FieldContextValue {
   id: string;
   error?: string;
   disabled?: boolean;
+  hasHint: boolean;
+  onHintMount: () => void;
+  onHintUnmount: () => void;
 }
 
 const FieldContext = createContext<FieldContextValue | null>(null);
@@ -49,8 +52,11 @@ export interface SliderProps
 
 const Field = ({ error, disabled, children, className }: SliderFieldProps) => {
   const id = useId();
+  const [hasHint, setHasHint] = useState(false);
+  const onHintMount = useCallback(() => setHasHint(true), []);
+  const onHintUnmount = useCallback(() => setHasHint(false), []);
   return (
-    <FieldContext.Provider value={{ id, error, disabled }}>
+    <FieldContext.Provider value={{ id, error, disabled, hasHint, onHintMount, onHintUnmount }}>
       <div
         className={[styles.field, className].filter(Boolean).join(' ')}
         data-error={error || undefined}
@@ -72,14 +78,14 @@ const Label = ({ children, className }: SliderLabelProps) => {
 
 const SliderRoot = forwardRef<HTMLInputElement, SliderProps>(
   ({ value, defaultValue, onChange, min = 0, max = 100, step = 1, size = 'md', className, disabled, ...props }, ref) => {
-    const { id, error, disabled: fieldDisabled } = useField();
+    const { id, error, disabled: fieldDisabled, hasHint } = useField();
     const [internal, setInternal] = useState<number>(defaultValue ?? min);
     const isControlled = value !== undefined;
     const current = isControlled ? value : internal;
     const pct = ((current - min) / (max - min)) * 100;
     const isDisabled = fieldDisabled || disabled;
     const describedBy =
-      [error && `${id}-error`, `${id}-hint`].filter(Boolean).join(' ') || undefined;
+      [error && `${id}-error`, hasHint && `${id}-hint`].filter(Boolean).join(' ') || undefined;
 
     const update = (next: number) => {
       if (!isControlled) setInternal(next);
@@ -110,7 +116,11 @@ const SliderRoot = forwardRef<HTMLInputElement, SliderProps>(
 SliderRoot.displayName = 'Slider';
 
 const Hint = ({ children, className }: SliderHintProps) => {
-  const { id } = useField();
+  const { id, onHintMount, onHintUnmount } = useField();
+  useEffect(() => {
+    onHintMount();
+    return onHintUnmount;
+  }, [onHintMount, onHintUnmount]);
   return (
     <span id={`${id}-hint`} className={[styles.hint, className].filter(Boolean).join(' ')}>
       {children}

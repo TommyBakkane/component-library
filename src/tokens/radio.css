@@ -1,5 +1,6 @@
 :root {
   --radio-size: 16px;
+  --radio-size-sm: 14px;
   --radio-border: var(--color-border);
   --radio-bg: var(--color-background);
   --radio-checked-bg: var(--color-primary);

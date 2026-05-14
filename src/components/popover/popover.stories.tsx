@@ -52,7 +52,7 @@ export const Placements: Story = {
           <Button
             key={p}
             ref={refs[p]}
-            variant="secondary"
+            variant="outline"
             onClick={() => setPlacement(prev => (prev === p ? null : p))}
           >
             {p}

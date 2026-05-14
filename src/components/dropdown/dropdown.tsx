@@ -33,7 +33,7 @@ export interface DropdownProps {
 }
 
 export interface DropdownTriggerProps {
-  children: React.ReactElement;
+  children: React.ReactElement<React.HTMLAttributes<HTMLElement>>;
 }
 
 export interface DropdownMenuProps {
@@ -95,12 +95,14 @@ const DropdownRoot = ({ children }: DropdownProps) => {
 };
 DropdownRoot.displayName = 'Dropdown';
 
+type TriggerChild = React.ReactElement<React.HTMLAttributes<HTMLElement> & { ref?: React.Ref<HTMLElement> }>;
+
 const Trigger = ({ children }: DropdownTriggerProps) => {
   const { toggle, triggerRef, open } = useDropdown();
-  const childProps = (children as React.ReactElement<any>).props;
-  return cloneElement(children as React.ReactElement<any>, {
-    onClick: (e: React.MouseEvent) => {
-      childProps.onClick?.(e);
+  const child = children as TriggerChild;
+  return cloneElement(child, {
+    onClick: (e: React.MouseEvent<HTMLElement>) => {
+      child.props.onClick?.(e);
       toggle();
     },
     ref: triggerRef,

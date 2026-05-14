@@ -41,17 +41,14 @@ const DrawerRoot = ({ open, onClose, side = 'right', size = 'md', children, clas
 
   useEffect(() => {
     if (!open) return;
-    const panel = panelRef.current;
-    const focusable = Array.from(
-      panel?.querySelectorAll<HTMLElement>(
-        'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
-      ) ?? []
-    );
-    focusable[0]?.focus();
+    const FOCUSABLE = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+    panelRef.current?.querySelector<HTMLElement>(FOCUSABLE)?.focus();
 
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') { onClose(); return; }
-      if (e.key !== 'Tab' || !focusable.length) return;
+      if (e.key !== 'Tab') return;
+      const focusable = Array.from(panelRef.current?.querySelectorAll<HTMLElement>(FOCUSABLE) ?? []);
+      if (!focusable.length) return;
       const first = focusable[0];
       const last = focusable[focusable.length - 1];
       if (e.shiftKey && document.activeElement === first) {

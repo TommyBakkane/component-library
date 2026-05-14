@@ -8,7 +8,7 @@
 }
 
 .sm {
-  --_size: 14px;
+  --_size: var(--checkbox-size-sm);
 }
 
 /* ========================

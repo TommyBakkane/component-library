@@ -1,10 +1,13 @@
-import { createContext, forwardRef, useContext, useId, useState } from 'react';
+import { createContext, forwardRef, useCallback, useContext, useEffect, useId, useState } from 'react';
 import styles from './number-input.module.css';
 
 interface FieldContextValue {
   id: string;
   error?: string;
   disabled?: boolean;
+  hasHint: boolean;
+  onHintMount: () => void;
+  onHintUnmount: () => void;
 }
 
 const FieldContext = createContext<FieldContextValue | null>(null);
@@ -48,8 +51,11 @@ export interface NumberInputProps
 
 const Field = ({ error, disabled, children, className }: NumberInputFieldProps) => {
   const id = useId();
+  const [hasHint, setHasHint] = useState(false);
+  const onHintMount = useCallback(() => setHasHint(true), []);
+  const onHintUnmount = useCallback(() => setHasHint(false), []);
   return (
-    <FieldContext.Provider value={{ id, error, disabled }}>
+    <FieldContext.Provider value={{ id, error, disabled, hasHint, onHintMount, onHintUnmount }}>
       <div
         className={[styles.field, className].filter(Boolean).join(' ')}
         data-error={error || undefined}
@@ -71,13 +77,13 @@ const Label = ({ children, className }: NumberInputLabelProps) => {
 
 const NumberInputRoot = forwardRef<HTMLInputElement, NumberInputProps>(
   ({ value, defaultValue, onChange, min, max, step = 1, className, disabled, ...props }, ref) => {
-    const { id, error, disabled: fieldDisabled } = useField();
+    const { id, error, disabled: fieldDisabled, hasHint } = useField();
     const [internal, setInternal] = useState<number>(defaultValue ?? 0);
     const isControlled = value !== undefined;
     const current = isControlled ? value : internal;
     const isDisabled = fieldDisabled || disabled;
     const describedBy =
-      [error && `${id}-error`, `${id}-hint`].filter(Boolean).join(' ') || undefined;
+      [error && `${id}-error`, hasHint && `${id}-hint`].filter(Boolean).join(' ') || undefined;
 
     const update = (next: number) => {
       const clamped = Math.min(max ?? Infinity, Math.max(min ?? -Infinity, next));
@@ -148,7 +154,11 @@ const NumberInputRoot = forwardRef<HTMLInputElement, NumberInputProps>(
 NumberInputRoot.displayName = 'NumberInput';
 
 const Hint = ({ children, className }: NumberInputHintProps) => {
-  const { id } = useField();
+  const { id, onHintMount, onHintUnmount } = useField();
+  useEffect(() => {
+    onHintMount();
+    return onHintUnmount;
+  }, [onHintMount, onHintUnmount]);
   return (
     <span id={`${id}-hint`} className={[styles.hint, className].filter(Boolean).join(' ')}>
       {children}

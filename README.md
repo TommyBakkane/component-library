@@ -279,7 +279,7 @@ import { Avatar } from '@tommybakkane/component-library';
 | `name` | `string` | — |
 | `size` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` |
 
-`Avatar.Group` props: `max?: number`, `size?`.
+`Avatar.Group` props: `max?: number`, `size?`. The `size` set on `Group` automatically propagates to all child `Avatar`s — no need to set it on each one individually. An explicit `size` on an individual `Avatar` overrides the group value.
 
 ---
 
@@ -423,6 +423,8 @@ import { Tooltip } from '@tommybakkane/component-library';
 | `content` | `ReactNode` | required |
 | `placement` | `'top' \| 'bottom' \| 'left' \| 'right'` | `'top'` |
 
+The trigger child must accept HTML attributes — `aria-describedby` is injected automatically so screen readers announce the tooltip content when the trigger is focused.
+
 ---
 
 ### Popover
@@ -445,6 +447,7 @@ const [open, setOpen] = useState(false);
 | `onClose` | `() => void` | required |
 | `anchorRef` | `RefObject<HTMLElement>` | required |
 | `placement` | `'top' \| 'bottom' \| 'left' \| 'right' \| 'top-start' \| 'top-end' \| 'bottom-start' \| 'bottom-end'` | `'bottom-start'` |
+| `aria-label` | `string` | — |
 
 ---
 
@@ -613,7 +616,15 @@ import { Flex } from '@tommybakkane/component-library';
 ```tsx
 import { Grid } from '@tommybakkane/component-library';
 
+// Fixed columns
 <Grid cols={3} gap="md">
+  <Card />
+  <Card />
+  <Card />
+</Grid>
+
+// Responsive auto-fill
+<Grid minColWidth="200px" gap="md">
   <Card />
   <Card />
   <Card />
@@ -622,8 +633,11 @@ import { Grid } from '@tommybakkane/component-library';
 
 | Prop | Type | Default |
 |------|------|---------|
-| `cols` | `number` | required |
+| `cols` | `number` | — |
+| `minColWidth` | `string` | — |
 | `gap` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'sm'` |
+
+Use either `cols` (fixed column count) or `minColWidth` (responsive `auto-fill`), not both.
 
 ---
 
@@ -633,15 +647,15 @@ import { Grid } from '@tommybakkane/component-library';
 import { Link } from '@tommybakkane/component-library';
 
 <Link href="/about">About</Link>
-<Link href="/about" variant="muted" underline="always">Muted link</Link>
+<Link href="/about" variant="muted">Muted link</Link>
+<Link href="/danger-zone" variant="danger">Delete account</Link>
 ```
 
 | Prop | Type | Default |
 |------|------|---------|
-| `variant` | `'default' \| 'muted'` | `'default'` |
-| `underline` | `'hover' \| 'always' \| 'none'` | `'hover'` |
+| `variant` | `'default' \| 'muted' \| 'danger'` | `'default'` |
 
-Extends all native `<a>` attributes.
+Extends all native `<a>` attributes, including `ref`.
 
 ---
 

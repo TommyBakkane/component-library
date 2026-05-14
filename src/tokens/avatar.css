@@ -3,4 +3,5 @@
   --avatar-bg: var(--color-primary-soft);
   --avatar-color: var(--color-primary);
   --avatar-placeholder-color: var(--color-text-muted);
+  --avatar-group-overlap: -6px;
 }

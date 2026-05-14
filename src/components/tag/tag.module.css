@@ -2,7 +2,7 @@
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-xs);
-  padding: 3px var(--spacing-sm);
+  padding: var(--tag-padding-y) var(--spacing-sm);
   border-radius: var(--radius-full);
   font-size: var(--font-size-xs);
   font-weight: 500;
@@ -74,6 +74,6 @@
 }
 
 .dismiss svg {
-  width: 10px;
-  height: 10px;
+  width: var(--tag-dismiss-icon-size);
+  height: var(--tag-dismiss-icon-size);
 }

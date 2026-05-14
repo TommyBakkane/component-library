@@ -77,7 +77,7 @@ export const ToastProvider = ({ children, position = 'bottom-right' }: ToastProv
 
   const add = useCallback(
     (item: Omit<ToastItem, 'id'>) => {
-      const id = Math.random().toString(36).slice(2, 9);
+      const id = crypto.randomUUID();
       setToasts(prev => [...prev, { ...item, id }]);
       const duration = item.duration ?? 4000;
       if (duration > 0) setTimeout(() => remove(id), duration);

@@ -7,4 +7,5 @@
   --toast-error-bg: var(--color-danger);
   --toast-warning-bg: var(--color-warning);
   --toast-info-bg: var(--color-info);
+  --toast-dismiss-icon-size: 12px;
 }

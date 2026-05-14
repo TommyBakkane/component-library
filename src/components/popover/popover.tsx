@@ -19,6 +19,7 @@ export interface PopoverProps {
   placement?: PopoverPlacement;
   children: React.ReactNode;
   className?: string;
+  'aria-label'?: string;
 }
 
 function getPosition(anchor: DOMRect, placement: PopoverPlacement, gap = 6) {
@@ -36,7 +37,7 @@ function getPosition(anchor: DOMRect, placement: PopoverPlacement, gap = 6) {
 }
 
 export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
-  ({ open, onClose, anchorRef, placement = 'bottom-start', children, className }, ref) => {
+  ({ open, onClose, anchorRef, placement = 'bottom-start', children, className, 'aria-label': ariaLabel }, ref) => {
     const [pos, setPos] = useState<{ top: number; left: number } | null>(null);
     const popoverRef = useRef<HTMLDivElement | null>(null);
 
@@ -80,6 +81,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         ref={setRefs}
         role="dialog"
         aria-modal="false"
+        aria-label={ariaLabel}
         data-placement={placement}
         className={[styles.popover, className].filter(Boolean).join(' ')}
         style={{ top: pos.top, left: pos.left }}

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Card } from './card';
+import { Button } from '../button/button';
 
 const meta = {
   title: 'Components/Card',
@@ -32,8 +33,8 @@ export const WithSections: Story = {
         </p>
       </Card.Body>
       <Card.Footer>
-        <button type="button">Secondary</button>
-        <button type="button">Primary</button>
+        <Button variant="ghost">Cancel</Button>
+        <Button variant="primary">Save</Button>
       </Card.Footer>
     </Card>
   ),

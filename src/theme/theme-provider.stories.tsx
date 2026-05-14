@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ThemeProvider } from './theme-provider';
-import { Button } from '../button/button';
-import { Card } from '../card/card';
-import { Badge } from '../badge/badge';
+import { Button } from '../components/button/button';
+import { Card } from '../components/card/card';
+import { Badge } from '../components/badge/badge';
 
 const meta = {
   title: 'Components/ThemeProvider',
@@ -53,8 +53,8 @@ export const CustomBrand: Story = {
         <Card.Header>Violet brand, sharp radius</Card.Header>
         <Card.Body style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
           <Button variant="primary">Primary</Button>
-          <Button variant="secondary">Secondary</Button>
-          <Badge variant="primary">Badge</Badge>
+          <Button variant="outline">Outline</Button>
+          <Badge color="primary">Badge</Badge>
         </Card.Body>
       </Card>
     </ThemeProvider>
