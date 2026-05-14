@@ -67,7 +67,6 @@ export interface Theme {
 
 export interface ThemeProviderProps {
   theme?: Theme;
-  mode?: 'light' | 'dark' | 'system';
   children: React.ReactNode;
 }
 
@@ -126,12 +125,7 @@ if (c.surface !== undefined) vars['--color-surface'] = c.surface;
   return vars as React.CSSProperties;
 }
 
-export function ThemeProvider({ theme, mode, children }: ThemeProviderProps) {
+export function ThemeProvider({ theme, children }: ThemeProviderProps) {
   const style = useMemo(() => buildCssVars(theme ?? {}), [theme]);
-  const dataTheme = mode === 'system' || mode === undefined ? undefined : mode;
-  return (
-    <div style={style} data-theme={dataTheme}>
-      {children}
-    </div>
-  );
+  return <div style={style}>{children}</div>;
 }
