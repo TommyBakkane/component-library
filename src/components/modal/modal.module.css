@@ -5,7 +5,7 @@
 .backdrop {
   position: fixed;
   inset: 0;
-  background: var(--modal-backdrop);
+  background: rgb(0 0 0 / 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,15 +24,25 @@
    ======================== */
 
 .dialog {
-  background: var(--modal-bg);
-  border-radius: var(--modal-radius);
-  box-shadow: var(--modal-shadow);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 60px rgb(0 0 0 / 0.2);
   width: 100%;
   max-height: 90dvh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   animation: dialog-in 200ms ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  .dialog {
+    box-shadow: 0 20px 60px rgb(0 0 0 / 0.5);
+  }
+}
+
+:root[data-theme='dark'] .dialog {
+  box-shadow: 0 20px 60px rgb(0 0 0 / 0.5);
 }
 
 @keyframes dialog-in {
@@ -47,9 +57,9 @@
   }
 }
 
-.sm { max-width: var(--modal-width-sm); }
-.md { max-width: var(--modal-width-md); }
-.lg { max-width: var(--modal-width-lg); }
+.sm { max-width: 400px; }
+.md { max-width: 560px; }
+.lg { max-width: 720px; }
 
 /* ========================
    SECTIONS
@@ -60,10 +70,10 @@
   align-items: center;
   gap: var(--spacing-md);
   padding: var(--spacing-lg) var(--spacing-xl);
-  border-bottom: 1px solid var(--color-border);
+
   font-weight: 500;
   font-size: var(--font-size-lg);
-  color: var(--color-text);
+  color: var(--color-on-surface);
   flex-shrink: 0;
 }
 
@@ -71,12 +81,12 @@
   padding: var(--spacing-xl);
   overflow-y: auto;
   flex: 1;
-  color: var(--color-text);
+  color: var(--color-on-surface);
 }
 
 .footer {
   padding: var(--spacing-md) var(--spacing-xl);
-  border-top: 1px solid var(--color-border);
+
   background: var(--color-surface);
   display: flex;
   align-items: center;

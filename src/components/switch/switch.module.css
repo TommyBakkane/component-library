@@ -1,7 +1,7 @@
 .root {
-  --_track-width: var(--switch-width);
-  --_track-height: var(--switch-height);
-  --_thumb-size: var(--switch-thumb-size);
+  --_track-width: 40px;
+  --_track-height: 22px;
+  --_thumb-size: 16px;
 
   display: flex;
   flex-direction: column;
@@ -10,9 +10,9 @@
 }
 
 .sm {
-  --_track-width: var(--switch-width-sm);
-  --_track-height: var(--switch-height-sm);
-  --_thumb-size: var(--switch-thumb-size-sm);
+  --_track-width: 32px;
+  --_track-height: 18px;
+  --_thumb-size: 12px;
 }
 
 /* ========================
@@ -64,8 +64,8 @@
 .track {
   position: absolute;
   inset: 0;
-  background-color: var(--switch-track-bg);
-  border-radius: var(--switch-radius);
+  background-color: var(--color-border);
+  border-radius: var(--radius-lg);
   pointer-events: none;
   transition: background-color 150ms ease;
 }
@@ -76,15 +76,15 @@
   left: calc((var(--_track-height) - var(--_thumb-size)) / 2);
   width: var(--_thumb-size);
   height: var(--_thumb-size);
-  background: var(--switch-thumb-bg);
+  background: var(--color-on-primary);
   border-radius: 50%;
-  box-shadow: var(--shadow-xs);
+  box-shadow: var(--shadow);
   transform: translateY(-50%);
   transition: left 150ms ease;
 }
 
 .input:checked + .track {
-  background-color: var(--switch-track-checked-bg);
+  background-color: var(--color-primary);
 }
 
 .input:checked + .track .thumb {
@@ -92,7 +92,7 @@
 }
 
 .input:focus-visible + .track {
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--switch-focus-ring) 20%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 20%, transparent);
 }
 
 .root[data-disabled] .track {
@@ -105,7 +105,7 @@
 
 .label {
   font-size: var(--font-size-sm);
-  color: var(--color-text);
+  color: var(--color-on-background);
   cursor: pointer;
   user-select: none;
   line-height: 1.4;

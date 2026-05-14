@@ -38,10 +38,10 @@
    ======================== */
 
 .toast {
-  background: var(--toast-bg);
-  color: var(--toast-color);
-  border-radius: var(--toast-radius);
-  box-shadow: var(--toast-shadow);
+  background: var(--color-on-background);
+  color: var(--color-background);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
   padding: var(--spacing-sm) var(--spacing-md);
   display: flex;
   align-items: center;
@@ -63,10 +63,10 @@
   }
 }
 
-.success { background: var(--toast-success-bg); }
-.error   { background: var(--toast-error-bg); }
-.warning { background: var(--toast-warning-bg); }
-.info    { background: var(--toast-info-bg); }
+.success { background: var(--color-success); }
+.error   { background: var(--color-danger); }
+.warning { background: var(--color-warning); }
+.info    { background: var(--color-info); }
 
 .icon {
   flex-shrink: 0;
@@ -97,13 +97,13 @@
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  border-radius: var(--radius-xs);
+  border-radius: var(--radius-sm);
   transition: opacity 150ms ease;
 }
 
 .dismiss:hover { opacity: 1; }
 
 .dismiss svg {
-  width: var(--toast-dismiss-icon-size);
-  height: var(--toast-dismiss-icon-size);
+  width: 12px;
+  height: 12px;
 }

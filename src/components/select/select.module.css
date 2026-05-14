@@ -24,7 +24,7 @@
   left: var(--spacing-md);
   transform: translateY(-50%);
   padding: 0 var(--spacing-xs);
-  background: var(--input-label-bg);
+  background: linear-gradient(var(--color-background) 50%, var(--color-surface) 50%);
   font-size: var(--font-size-xs);
   font-weight: 500;
   line-height: 1;
@@ -68,7 +68,7 @@
   font-size: var(--font-size-sm);
   font-weight: 500;
   font-family: var(--font-family-base);
-  color: var(--color-text);
+  color: var(--color-on-surface);
 }
 
 /* ========================
@@ -79,14 +79,14 @@
   width: 100%;
   min-height: var(--size-lg);
   padding: 0 calc(var(--spacing-md) + var(--icon-md) + var(--spacing-xs)) 0 var(--spacing-md);
-  border: 1px solid var(--input-border);
-  border-radius: var(--input-radius);
-  background-color: var(--input-bg);
-  background-image: var(--select-chevron);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="%2364748b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
   background-repeat: no-repeat;
   background-position: right var(--spacing-md) center;
   background-size: var(--icon-md);
-  color: var(--color-text);
+  color: var(--color-on-surface);
   font-size: var(--font-size-md);
   font-family: var(--font-family-base);
   box-sizing: border-box;
@@ -99,9 +99,19 @@
     box-shadow 150ms ease;
 }
 
+@media (prefers-color-scheme: dark) {
+  .select {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="%2394a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  }
+}
+
+:root[data-theme='dark'] .select {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="%2394a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+}
+
 .select:focus-visible {
-  border-color: var(--input-focus-ring);
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--input-focus-ring) 20%, transparent);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) 20%, transparent);
 }
 
 .select:disabled {
@@ -114,16 +124,16 @@
    ======================== */
 
 .field[data-error] .select {
-  border-color: var(--input-error-color);
+  border-color: var(--color-danger);
 }
 
 .field[data-error] .select:focus-visible {
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--input-error-color) 20%, transparent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-danger) 20%, transparent);
 }
 
 .field[data-error][data-variant='on-line'] .label,
 .field[data-error][data-variant='inside'] .label {
-  color: var(--input-error-color);
+  color: var(--color-danger);
 }
 
 .field:has(.select:disabled) .label {
@@ -141,5 +151,5 @@
 
 .error {
   font-size: var(--font-size-xs);
-  color: var(--input-error-color);
+  color: var(--color-danger);
 }

@@ -5,9 +5,9 @@
   justify-content: center;
   width: var(--_size);
   height: var(--_size);
-  border-radius: var(--avatar-radius);
-  background: var(--avatar-bg);
-  color: var(--avatar-color);
+  border-radius: var(--radius-lg);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
   overflow: hidden;
   flex-shrink: 0;
   font-weight: 500;
@@ -36,7 +36,7 @@
 .placeholder {
   width: 55%;
   height: 55%;
-  color: var(--avatar-placeholder-color);
+  color: var(--color-primary);
 }
 
 /* ========================
@@ -48,7 +48,7 @@
 }
 
 .group > * + * {
-  margin-left: var(--avatar-group-overlap);
+  margin-left: -6px;
   box-shadow: 0 0 0 2px var(--color-background);
 }
 

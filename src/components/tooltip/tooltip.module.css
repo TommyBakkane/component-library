@@ -10,13 +10,13 @@
 .tooltip {
   position: absolute;
   z-index: 100;
-  background: var(--tooltip-bg);
-  color: var(--tooltip-color);
+  background: var(--color-on-background);
+  color: var(--color-background);
   font-size: var(--font-size-xs);
   line-height: 1.4;
   padding: var(--spacing-xs) var(--spacing-sm);
-  border-radius: var(--tooltip-radius);
-  box-shadow: var(--tooltip-shadow);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
   white-space: nowrap;
   pointer-events: none;
   opacity: 0;

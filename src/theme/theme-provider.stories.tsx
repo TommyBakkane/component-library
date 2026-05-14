@@ -34,18 +34,15 @@ export const CustomBrand: Story = {
   render: () => (
     <ThemeProvider
       theme={{
-        color: {
+        colors: {
           primary: '#7c3aed',
           onPrimary: '#ffffff',
           primarySoft: '#ede9fe',
         },
         radius: {
-          xs: '2px',
-          sm: '3px',
+          sm: '2px',
           md: '4px',
-          lg: '6px',
-          xl: '8px',
-          full: '9999px',
+          lg: '9999px',
         },
       }}
     >
@@ -64,7 +61,7 @@ export const CustomBrand: Story = {
 export const MultipleThemes: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: 24 }}>
-      <ThemeProvider theme={{ color: { primary: '#16a34a', primarySoft: '#dcfce7' } }}>
+      <ThemeProvider theme={{ colors: { primary: '#16a34a', primarySoft: '#dcfce7' } }}>
         <Card style={{ padding: 24, width: 220 }}>
           <Card.Header>Green theme</Card.Header>
           <Card.Body>
@@ -72,7 +69,7 @@ export const MultipleThemes: Story = {
           </Card.Body>
         </Card>
       </ThemeProvider>
-      <ThemeProvider theme={{ color: { primary: '#dc2626', primarySoft: '#fee2e2' } }}>
+      <ThemeProvider theme={{ colors: { primary: '#dc2626', primarySoft: '#fee2e2' } }}>
         <Card style={{ padding: 24, width: 220 }}>
           <Card.Header>Red theme</Card.Header>
           <Card.Body>

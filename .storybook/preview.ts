@@ -3,26 +3,40 @@ import type { Preview } from '@storybook/react-vite';
 import '../src/index';
 
 const preview: Preview = {
-  parameters: {
-    backgrounds: {
-      default: 'white',
-      values: [
-        { name: 'white', value: '#ffffff' },
-        { name: 'surface', value: '#f8fafc' },
-      ],
+  globalTypes: {
+    theme: {
+      description: 'Color theme',
+      defaultValue: 'light',
+      toolbar: {
+        title: 'Theme',
+        icon: 'circlehollow',
+        items: [
+          { value: 'light', icon: 'sun', title: 'Light' },
+          { value: 'dark', icon: 'moon', title: 'Dark' },
+        ],
+        dynamicTitle: true,
+      },
     },
+  },
 
+  decorators: [
+    (Story, context) => {
+      const theme = context.globals.theme ?? 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      document.body.style.background =
+        theme === 'dark' ? '#1e1c19' : '#fafaf8';
+      return Story();
+    },
+  ],
+
+  parameters: {
     controls: {
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/i,
       },
     },
-
     a11y: {
-      // 'todo' - show a11y violations in the test UI only
-      // 'error' - fail CI on a11y violations
-      // 'off' - skip a11y checks entirely
       test: 'todo',
     },
   },

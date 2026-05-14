@@ -24,7 +24,7 @@
   left: var(--spacing-md);
   transform: translateY(-50%);
   padding: 0 var(--spacing-xs);
-  background: var(--input-label-bg);
+  background: linear-gradient(var(--color-background) 50%, var(--color-surface) 50%);
   font-size: var(--font-size-xs);
   font-weight: 500;
   line-height: 1;
@@ -66,7 +66,7 @@
   font-size: var(--font-size-sm);
   font-weight: 500;
   font-family: var(--font-family-base);
-  color: var(--color-text);
+  color: var(--color-on-surface);
 }
 
 /* ========================
@@ -76,10 +76,10 @@
 .textarea {
   width: 100%;
   padding: var(--spacing-md);
-  border: 1px solid var(--input-border);
-  border-radius: var(--input-radius);
-  background: var(--input-bg);
-  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-on-surface);
   font-size: var(--font-size-md);
   font-family: var(--font-family-base);
   line-height: 1.5;
@@ -97,8 +97,8 @@
 }
 
 .textarea:focus-visible {
-  border-color: var(--input-focus-ring);
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--input-focus-ring) 20%, transparent);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) 20%, transparent);
 }
 
 .textarea:disabled {
@@ -111,16 +111,16 @@
    ======================== */
 
 .field[data-error] .textarea {
-  border-color: var(--input-error-color);
+  border-color: var(--color-danger);
 }
 
 .field[data-error] .textarea:focus-visible {
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--input-error-color) 20%, transparent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-danger) 20%, transparent);
 }
 
 .field[data-error][data-variant='on-line'] .label,
 .field[data-error][data-variant='inside'] .label {
-  color: var(--input-error-color);
+  color: var(--color-danger);
 }
 
 .field:has(.textarea:disabled) .label {
@@ -138,5 +138,5 @@
 
 .error {
   font-size: var(--font-size-xs);
-  color: var(--input-error-color);
+  color: var(--color-danger);
 }

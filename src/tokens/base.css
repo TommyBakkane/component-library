@@ -1,15 +1,14 @@
 :root {
   /* Brand */
-  --color-primary: #6366f1;
+  --color-primary: #4f5ff0;
   --color-on-primary: #ffffff;
-  --color-primary-soft: #eef2ff;
+  --color-primary-soft: #eef0fd;
 
-  /* Backgrounds */
-  --color-background: #ffffff;
-  --color-on-background: #0f172a;
-
-  --color-surface: #f8fafc;
-  --color-on-surface: #0f172a;
+  /* Backgrounds & surfaces */
+  --color-background: #fafaf8;
+  --color-on-background: #18181b;
+  --color-surface: #f4f3f0;
+  --color-on-surface: #18181b;
 
   /* Semantic */
   --color-success: #16a34a;
@@ -24,18 +23,15 @@
   --color-info: #0ea5e9;
   --color-info-soft: #f0f9ff;
 
-  /* Text & Border */
-  --color-border: #e2e8f0;
-  --color-text: #0f172a;
-  --color-text-muted: #64748b;
+  /* Text & border */
+  --color-text-secondary: #52525b;
+  --color-text-muted: #a1a1aa;
+  --color-border: #e4e4e7;
 
   /* Radius */
-  --radius-xs: 4px;
-  --radius-sm: 6px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
-  --radius-full: 9999px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 9999px;
 
   /* Spacing */
   --spacing-xs: 4px;
@@ -49,7 +45,6 @@
   --font-size-sm: 14px;
   --font-size-md: 15px;
   --font-size-lg: 17px;
-  --font-size-xl: 20px;
 
   /* Component heights */
   --size-xs: 24px;
@@ -59,57 +54,77 @@
   --size-xl: 52px;
 
   /* Icon sizes */
-  --icon-xs: 12px;
   --icon-sm: 16px;
   --icon-md: 20px;
   --icon-lg: 24px;
 
   /* Shadows */
-  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
 
   /* Typography */
   --font-family-base: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
 
+
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Brand */
-    --color-primary: #818cf8;
-    --color-on-primary: #ffffff;
-    --color-primary-soft: #1e1b4b;
-
-    /* Backgrounds */
-    --color-background: #0f172a;
-    --color-on-background: #f1f5f9;
-
-    --color-surface: #1e293b;
-    --color-on-surface: #f1f5f9;
-
-    /* Semantic */
-    --color-success: #4ade80;
-    --color-success-soft: #052e16;
-
-    --color-warning: #fbbf24;
-    --color-warning-soft: #2d1a00;
-
-    --color-danger: #f87171;
-    --color-danger-soft: #3b0a0a;
-
-    --color-info: #38bdf8;
-    --color-info-soft: #0c2233;
-
-    /* Text & Border */
-    --color-border: #334155;
-    --color-text: #f1f5f9;
-    --color-text-muted: #94a3b8;
-
-    /* Shadows */
-    --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.3);
-    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+    --color-primary-soft: #1f1e40;
+    --color-background: #1e1c19;
+    --color-on-background: #f0ece5;
+    --color-surface: #262420;
+    --color-on-surface: #f0ece5;
+    --color-success: #6ee7a0;
+    --color-success-soft: #141f12;
+    --color-warning: #fcd34d;
+    --color-warning-soft: #231a06;
+    --color-danger: #ef4444;
+    --color-danger-soft: #241210;
+    --color-info: #7dd3fc;
+    --color-info-soft: #0e1b28;
+    --color-text-secondary: #9c9890;
+    --color-text-muted: #6b6760;
+    --color-border: #3c3a35;
+    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.25), 0 1px 2px -1px rgb(0 0 0 / 0.25);
   }
+}
+
+[data-theme='dark'] {
+  --color-primary-soft: #1f1e40;
+  --color-background: #1e1c19;
+  --color-on-background: #f0ece5;
+  --color-surface: #262420;
+  --color-on-surface: #f0ece5;
+  --color-success: #6ee7a0;
+  --color-success-soft: #141f12;
+  --color-warning: #fcd34d;
+  --color-warning-soft: #231a06;
+  --color-danger: #ef4444;
+  --color-danger-soft: #241210;
+  --color-info: #7dd3fc;
+  --color-info-soft: #0e1b28;
+  --color-text-secondary: #9c9890;
+  --color-text-muted: #6b6760;
+  --color-border: #3c3a35;
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.25), 0 1px 2px -1px rgb(0 0 0 / 0.25);
+}
+
+[data-theme='light'] {
+  --color-primary-soft: #eef0fd;
+  --color-background: #fafaf8;
+  --color-on-background: #18181b;
+  --color-surface: #f4f3f0;
+  --color-on-surface: #18181b;
+  --color-success: #16a34a;
+  --color-success-soft: #dcfce7;
+  --color-warning: #d97706;
+  --color-warning-soft: #fef3c7;
+  --color-danger: #dc2626;
+  --color-danger-soft: #fee2e2;
+  --color-info: #0ea5e9;
+  --color-info-soft: #f0f9ff;
+  --color-text-secondary: #52525b;
+  --color-text-muted: #a1a1aa;
+  --color-border: #e4e4e7;
 }
 
 body {

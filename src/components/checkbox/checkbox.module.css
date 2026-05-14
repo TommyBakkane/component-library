@@ -1,5 +1,5 @@
 .root {
-  --_size: var(--checkbox-size);
+  --_size: 16px;
 
   display: flex;
   flex-direction: column;
@@ -8,7 +8,7 @@
 }
 
 .sm {
-  --_size: var(--checkbox-size-sm);
+  --_size: 14px;
 }
 
 /* ========================
@@ -59,9 +59,9 @@
 .indicator {
   position: absolute;
   inset: 0;
-  border: 1.5px solid var(--checkbox-border);
-  border-radius: var(--checkbox-radius);
-  background-color: var(--checkbox-bg);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 75%;
@@ -73,24 +73,24 @@
 }
 
 .input:not(:disabled):hover + .indicator {
-  border-color: color-mix(in srgb, var(--checkbox-checked-border) 60%, var(--checkbox-border));
+  border-color: color-mix(in srgb, var(--color-primary) 60%, var(--color-border));
 }
 
 .input:checked + .indicator {
-  background-color: var(--checkbox-checked-bg);
-  border-color: var(--checkbox-checked-border);
-  background-image: var(--checkbox-checkmark);
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="%23ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
 }
 
 .input:indeterminate + .indicator {
-  background-color: var(--checkbox-checked-bg);
-  border-color: var(--checkbox-checked-border);
-  background-image: var(--checkbox-indeterminate);
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7" stroke="%23ffffff" stroke-width="1.5" stroke-linecap="round"/></svg>');
 }
 
 .input:focus-visible + .indicator {
-  border-color: var(--checkbox-focus-ring);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--checkbox-focus-ring) 20%, transparent);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 20%, transparent);
 }
 
 .root[data-disabled] .indicator {
@@ -107,7 +107,7 @@
 
 .label {
   font-size: var(--font-size-sm);
-  color: var(--color-text);
+  color: var(--color-on-surface);
   cursor: pointer;
   user-select: none;
   line-height: 1.4;

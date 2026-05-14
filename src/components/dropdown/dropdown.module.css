@@ -5,10 +5,10 @@
 .menu {
   position: fixed;
   z-index: 500;
-  background: var(--dropdown-bg);
-  border: 1px solid var(--dropdown-border);
-  border-radius: var(--dropdown-radius);
-  box-shadow: var(--dropdown-shadow);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
   padding: var(--spacing-xs) 0;
   overflow: hidden;
   animation: menu-in 150ms ease;
@@ -40,14 +40,14 @@
   text-align: left;
   font-size: var(--font-size-sm);
   font-family: var(--font-family-base);
-  color: var(--color-text);
+  color: var(--color-on-surface);
   cursor: pointer;
   transition: background-color 100ms ease;
   white-space: nowrap;
 }
 
 .item:hover:not(:disabled) {
-  background: var(--dropdown-item-hover-bg);
+  background: var(--color-surface);
 }
 
 .item:focus-visible {
@@ -61,11 +61,11 @@
 }
 
 .item.danger {
-  color: var(--dropdown-item-danger-color);
+  color: var(--color-danger);
 }
 
 .item.danger:hover:not(:disabled) {
-  background: var(--dropdown-item-danger-hover-bg);
+  background: var(--color-danger-soft);
 }
 
 .itemIcon {
@@ -87,6 +87,6 @@
 
 .separator {
   height: 1px;
-  background: var(--dropdown-border);
+  background: var(--color-border);
   margin: var(--spacing-xs) 0;
 }

@@ -5,10 +5,10 @@
   font-weight: 500;
   font-family: var(--font-family-base);
 
-  border: 1px solid var(--button-border);
-  border-radius: var(--button-radius);
-  background-color: var(--button-bg);
-  color: var(--button-text-color);
+  border: 1px solid var(--_button-border, transparent);
+  border-radius: var(--radius-sm);
+  background-color: var(--_button-bg, var(--color-primary));
+  color: var(--_button-text-color, var(--color-on-primary));
 
   transition:
     background-color 150ms ease,
@@ -19,7 +19,7 @@
 }
 
 .button:focus-visible {
-  outline: 2px solid var(--button-focus-ring);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
@@ -37,31 +37,31 @@
    ========================= */
 
 .primary {
-  --button-bg: var(--color-primary);
-  --button-text-color: var(--color-on-primary);
-  --button-border: transparent;
-  box-shadow: var(--button-primary-shadow);
+  --_button-bg: var(--color-primary);
+  --_button-text-color: var(--color-on-primary);
+  --_button-border: transparent;
+  box-shadow: 0 1px 2px 0 color-mix(in srgb, var(--color-primary) 35%, transparent);
 }
 
 .primary:not(:disabled):hover {
-  filter: var(--button-hover-filter);
+  filter: brightness(1.08);
 }
 
 .primary:not(:disabled):active {
-  filter: var(--button-active-filter);
+  filter: brightness(0.94);
   box-shadow: none;
 }
 
 .outline {
-  --button-bg: transparent;
-  --button-text-color: var(--color-primary);
-  --button-border: var(--button-outline-color);
+  --_button-bg: transparent;
+  --_button-text-color: var(--color-primary);
+  --_button-border: var(--color-primary);
 }
 
 .outline:not(:disabled):hover {
   background-color: color-mix(
     in srgb,
-    var(--button-outline-color) 8%,
+    var(--color-primary) 8%,
     transparent
   );
 }
@@ -69,21 +69,21 @@
 .outline:not(:disabled):active {
   background-color: color-mix(
     in srgb,
-    var(--button-outline-color) 14%,
+    var(--color-primary) 14%,
     transparent
   );
 }
 
 .ghost {
-  --button-bg: transparent;
-  --button-text-color: var(--color-primary);
-  --button-border: transparent;
+  --_button-bg: transparent;
+  --_button-text-color: var(--color-primary);
+  --_button-border: transparent;
 }
 
 .ghost:not(:disabled):hover {
   background-color: color-mix(
     in srgb,
-    var(--button-ghost-color) 8%,
+    var(--color-primary) 8%,
     transparent
   );
 }
@@ -91,24 +91,24 @@
 .ghost:not(:disabled):active {
   background-color: color-mix(
     in srgb,
-    var(--button-ghost-color) 14%,
+    var(--color-primary) 14%,
     transparent
   );
 }
 
 .danger {
-  --button-bg: var(--color-danger);
-  --button-text-color: var(--color-on-primary);
-  --button-border: transparent;
+  --_button-bg: var(--color-danger);
+  --_button-text-color: var(--color-on-primary);
+  --_button-border: transparent;
   box-shadow: 0 1px 2px 0 color-mix(in srgb, var(--color-danger) 35%, transparent);
 }
 
 .danger:not(:disabled):hover {
-  filter: var(--button-hover-filter);
+  filter: brightness(1.08);
 }
 
 .danger:not(:disabled):active {
-  filter: var(--button-active-filter);
+  filter: brightness(0.94);
   box-shadow: none;
 }
 

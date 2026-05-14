@@ -4,10 +4,10 @@ export interface ThemeColors {
   primary?: string;
   onPrimary?: string;
   primarySoft?: string;
-  background?: string;
-  onBackground?: string;
+
   surface?: string;
   onSurface?: string;
+
   success?: string;
   successSoft?: string;
   warning?: string;
@@ -16,18 +16,15 @@ export interface ThemeColors {
   dangerSoft?: string;
   info?: string;
   infoSoft?: string;
+
+  onBackground?: string;
   border?: string;
-  text?: string;
-  textMuted?: string;
 }
 
 export interface ThemeRadius {
-  xs?: string;
   sm?: string;
   md?: string;
   lg?: string;
-  xl?: string;
-  full?: string;
 }
 
 export interface ThemeSpacing {
@@ -55,13 +52,11 @@ export interface ThemeSize {
 }
 
 export interface ThemeShadow {
-  xs?: string;
-  sm?: string;
-  md?: string;
+  shadow?: string;
 }
 
 export interface Theme {
-  color?: ThemeColors;
+  colors?: ThemeColors;
   radius?: ThemeRadius;
   spacing?: ThemeSpacing;
   fontSize?: ThemeFontSize;
@@ -71,20 +66,19 @@ export interface Theme {
 }
 
 export interface ThemeProviderProps {
-  theme: Theme;
+  theme?: Theme;
+  mode?: 'light' | 'dark' | 'system';
   children: React.ReactNode;
 }
 
 function buildCssVars(theme: Theme): React.CSSProperties {
   const vars: Record<string, string> = {};
 
-  const c = theme.color ?? {};
+  const c = theme.colors ?? {};
   if (c.primary !== undefined) vars['--color-primary'] = c.primary;
   if (c.onPrimary !== undefined) vars['--color-on-primary'] = c.onPrimary;
   if (c.primarySoft !== undefined) vars['--color-primary-soft'] = c.primarySoft;
-  if (c.background !== undefined) vars['--color-background'] = c.background;
-  if (c.onBackground !== undefined) vars['--color-on-background'] = c.onBackground;
-  if (c.surface !== undefined) vars['--color-surface'] = c.surface;
+if (c.surface !== undefined) vars['--color-surface'] = c.surface;
   if (c.onSurface !== undefined) vars['--color-on-surface'] = c.onSurface;
   if (c.success !== undefined) vars['--color-success'] = c.success;
   if (c.successSoft !== undefined) vars['--color-success-soft'] = c.successSoft;
@@ -94,17 +88,13 @@ function buildCssVars(theme: Theme): React.CSSProperties {
   if (c.dangerSoft !== undefined) vars['--color-danger-soft'] = c.dangerSoft;
   if (c.info !== undefined) vars['--color-info'] = c.info;
   if (c.infoSoft !== undefined) vars['--color-info-soft'] = c.infoSoft;
+  if (c.onBackground !== undefined) vars['--color-on-background'] = c.onBackground;
   if (c.border !== undefined) vars['--color-border'] = c.border;
-  if (c.text !== undefined) vars['--color-text'] = c.text;
-  if (c.textMuted !== undefined) vars['--color-text-muted'] = c.textMuted;
 
   const r = theme.radius ?? {};
-  if (r.xs !== undefined) vars['--radius-xs'] = r.xs;
   if (r.sm !== undefined) vars['--radius-sm'] = r.sm;
   if (r.md !== undefined) vars['--radius-md'] = r.md;
   if (r.lg !== undefined) vars['--radius-lg'] = r.lg;
-  if (r.xl !== undefined) vars['--radius-xl'] = r.xl;
-  if (r.full !== undefined) vars['--radius-full'] = r.full;
 
   const sp = theme.spacing ?? {};
   if (sp.xs !== undefined) vars['--spacing-xs'] = sp.xs;
@@ -128,16 +118,20 @@ function buildCssVars(theme: Theme): React.CSSProperties {
   if (sz.xl !== undefined) vars['--size-xl'] = sz.xl;
 
   const sh = theme.shadow ?? {};
-  if (sh.xs !== undefined) vars['--shadow-xs'] = sh.xs;
-  if (sh.sm !== undefined) vars['--shadow-sm'] = sh.sm;
-  if (sh.md !== undefined) vars['--shadow-md'] = sh.md;
+  if (sh.shadow !== undefined) vars['--shadow'] = sh.shadow;
 
-  if (theme.fontFamilyBase !== undefined) vars['--font-family-base'] = theme.fontFamilyBase;
+  if (theme.fontFamilyBase !== undefined)
+    vars['--font-family-base'] = theme.fontFamilyBase;
 
   return vars as React.CSSProperties;
 }
 
-export function ThemeProvider({ theme, children }: ThemeProviderProps) {
-  const style = useMemo(() => buildCssVars(theme), [theme]);
-  return <div style={style}>{children}</div>;
+export function ThemeProvider({ theme, mode, children }: ThemeProviderProps) {
+  const style = useMemo(() => buildCssVars(theme ?? {}), [theme]);
+  const dataTheme = mode === 'system' || mode === undefined ? undefined : mode;
+  return (
+    <div style={style} data-theme={dataTheme}>
+      {children}
+    </div>
+  );
 }

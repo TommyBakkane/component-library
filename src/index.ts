@@ -1,28 +1,4 @@
 import './tokens/base.css';
-import './tokens/button.css';
-import './tokens/badge.css';
-import './tokens/input.css';
-import './tokens/table.css';
-import './tokens/checkbox.css';
-import './tokens/radio.css';
-import './tokens/switch.css';
-import './tokens/alert.css';
-import './tokens/tabs.css';
-import './tokens/modal.css';
-import './tokens/tooltip.css';
-import './tokens/avatar.css';
-import './tokens/toast.css';
-import './tokens/dropdown.css';
-import './tokens/accordion.css';
-import './tokens/pagination.css';
-import './tokens/progress.css';
-import './tokens/select.css';
-import './tokens/skeleton.css';
-import './tokens/tag.css';
-import './tokens/drawer.css';
-import './tokens/slider.css';
-import './tokens/popover.css';
-import './tokens/link.css';
 
 export { Button } from './components/button/button';
 export type { ButtonProps } from './components/button/button';

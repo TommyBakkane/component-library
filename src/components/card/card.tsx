@@ -2,17 +2,17 @@ import { forwardRef } from 'react';
 import styles from './card.module.css';
 
 export interface CardProps extends React.ComponentPropsWithRef<'div'> {
-  shadow?: 'none' | 'sm' | 'md';
+  shadow?: boolean;
 }
 
 export interface CardHeaderProps extends React.ComponentPropsWithRef<'div'> {}
 export interface CardBodyProps extends React.ComponentPropsWithRef<'div'> {}
 export interface CardFooterProps extends React.ComponentPropsWithRef<'div'> {}
 
-const CardRoot = forwardRef<HTMLDivElement, CardProps>(({ shadow = 'sm', className, ...props }, ref) => (
+const CardRoot = forwardRef<HTMLDivElement, CardProps>(({ shadow = true, className, ...props }, ref) => (
   <div
     ref={ref}
-    data-shadow={shadow}
+    data-shadow={String(shadow)}
     className={[styles.root, className].filter(Boolean).join(' ')}
     {...props}
   />

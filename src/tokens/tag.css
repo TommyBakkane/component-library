@@ -1,7 +1,0 @@
-:root {
-  --tag-bg: var(--color-surface);
-  --tag-color: var(--color-text);
-  --tag-border: var(--color-border);
-  --tag-padding-y: 3px;
-  --tag-dismiss-icon-size: 10px;
-}

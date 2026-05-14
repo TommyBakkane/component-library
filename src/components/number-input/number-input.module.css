@@ -15,7 +15,7 @@
 .label {
   font-size: var(--font-size-sm);
   font-family: var(--font-family-base);
-  color: var(--color-text);
+  color: var(--color-on-surface);
 }
 
 .field:has(.wrapper input:disabled) .label {
@@ -29,24 +29,24 @@
 .wrapper {
   display: flex;
   align-items: stretch;
-  border: 1px solid var(--input-border);
-  border-radius: var(--input-radius);
-  background: var(--input-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
   transition: border-color 150ms ease, box-shadow 150ms ease;
   overflow: hidden;
 }
 
 .field[data-error] .wrapper {
-  border-color: var(--input-error-color);
+  border-color: var(--color-danger);
 }
 
 .wrapper:focus-within {
-  border-color: var(--input-focus-ring);
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--input-focus-ring) 20%, transparent);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) 20%, transparent);
 }
 
 .field[data-error] .wrapper:focus-within {
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--input-error-color) 20%, transparent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-danger) 20%, transparent);
 }
 
 /* ========================
@@ -60,7 +60,7 @@
   padding: 0 var(--spacing-xs);
   border: none;
   background: transparent;
-  color: var(--color-text);
+  color: var(--color-on-surface);
   font-size: var(--font-size-md);
   font-family: var(--font-family-base);
   text-align: center;
@@ -96,22 +96,22 @@
   flex-shrink: 0;
   background: none;
   border: none;
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
   cursor: pointer;
   transition: background-color 120ms ease, color 120ms ease;
 }
 
 .stepper:hover:not(:disabled) {
   background: var(--color-surface);
-  color: var(--color-text);
+  color: var(--color-on-surface);
 }
 
 .stepper:first-child {
-  border-right: 1px solid var(--input-border);
+  border-right: 1px solid var(--color-border);
 }
 
 .stepper:last-child {
-  border-left: 1px solid var(--input-border);
+  border-left: 1px solid var(--color-border);
 }
 
 .stepper:disabled {
@@ -135,5 +135,5 @@
 
 .error {
   font-size: var(--font-size-xs);
-  color: var(--input-error-color);
+  color: var(--color-danger);
 }

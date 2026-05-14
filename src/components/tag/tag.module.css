@@ -2,14 +2,14 @@
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-xs);
-  padding: var(--tag-padding-y) var(--spacing-sm);
-  border-radius: var(--radius-full);
+  padding: 3px var(--spacing-sm);
+  border-radius: var(--radius-lg);
   font-size: var(--font-size-xs);
   font-weight: 500;
   line-height: 1;
-  border: 1px solid var(--tag-border);
-  background: var(--tag-bg);
-  color: var(--tag-color);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-on-surface);
   white-space: nowrap;
 }
 
@@ -59,7 +59,7 @@
   cursor: pointer;
   color: inherit;
   opacity: 0.6;
-  border-radius: var(--radius-xs);
+  border-radius: var(--radius-sm);
   flex-shrink: 0;
   transition: opacity 120ms ease;
 }
@@ -74,6 +74,6 @@
 }
 
 .dismiss svg {
-  width: var(--tag-dismiss-icon-size);
-  height: var(--tag-dismiss-icon-size);
+  width: 10px;
+  height: 10px;
 }

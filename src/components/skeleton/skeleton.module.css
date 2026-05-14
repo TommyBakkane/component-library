@@ -14,12 +14,36 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    var(--skeleton-shimmer-edge) 30%,
-    var(--skeleton-shimmer) 50%,
-    var(--skeleton-shimmer-edge) 70%,
+    rgba(255, 255, 255, 0.08) 30%,
+    rgba(255, 255, 255, 0.85) 50%,
+    rgba(255, 255, 255, 0.08) 70%,
     transparent 100%
   );
   animation: shimmer 1.1s infinite;
+}
+
+@media (prefers-color-scheme: dark) {
+  .shimmer::after {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.02) 30%,
+      rgba(255, 255, 255, 0.06) 50%,
+      rgba(255, 255, 255, 0.02) 70%,
+      transparent 100%
+    );
+  }
+}
+
+:root[data-theme='dark'] .shimmer::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.02) 30%,
+    rgba(255, 255, 255, 0.06) 50%,
+    rgba(255, 255, 255, 0.02) 70%,
+    transparent 100%
+  );
 }
 
 @keyframes shimmer {
