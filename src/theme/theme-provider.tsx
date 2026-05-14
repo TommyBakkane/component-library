@@ -17,6 +17,7 @@ export interface ThemeColors {
   info?: string;
   infoSoft?: string;
 
+  background?: string;
   onBackground?: string;
   border?: string;
 }
@@ -87,6 +88,7 @@ if (c.surface !== undefined) vars['--color-surface'] = c.surface;
   if (c.dangerSoft !== undefined) vars['--color-danger-soft'] = c.dangerSoft;
   if (c.info !== undefined) vars['--color-info'] = c.info;
   if (c.infoSoft !== undefined) vars['--color-info-soft'] = c.infoSoft;
+  if (c.background !== undefined) vars['--color-background'] = c.background;
   if (c.onBackground !== undefined) vars['--color-on-background'] = c.onBackground;
   if (c.border !== undefined) vars['--color-border'] = c.border;
 
