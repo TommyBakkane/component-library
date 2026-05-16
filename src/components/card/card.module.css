@@ -7,6 +7,11 @@
 
 .root[data-shadow='true'] { box-shadow: var(--shadow); }
 
+.root[data-padding='sm'] { padding: var(--spacing-sm); }
+.root[data-padding='md'] { padding: var(--spacing-md); }
+.root[data-padding='lg'] { padding: var(--spacing-lg); }
+.root[data-padding='xl'] { padding: var(--spacing-xl); }
+
 /* ========================
    SECTIONS
    ======================== */
@@ -20,9 +25,14 @@
 }
 
 .body {
-  padding: var(--spacing-lg);
   color: var(--color-on-surface);
 }
+
+.body[data-padding='none'] { padding: 0; }
+.body[data-padding='sm']   { padding: var(--spacing-sm); }
+.body[data-padding='md']   { padding: var(--spacing-md); }
+.body[data-padding='lg']   { padding: var(--spacing-lg); }
+.body[data-padding='xl']   { padding: var(--spacing-xl); }
 
 .footer {
   padding: var(--spacing-md) var(--spacing-lg);
