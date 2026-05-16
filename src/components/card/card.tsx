@@ -30,7 +30,7 @@ const Header = forwardRef<HTMLElement, CardHeaderProps>(({ className, ...props }
 ));
 Header.displayName = 'Card.Header';
 
-const Body = forwardRef<HTMLDivElement, CardBodyProps>(({ padding = 'lg', className, ...props }, ref) => (
+const Body = forwardRef<HTMLDivElement, CardBodyProps>(({ padding = 'xl', className, ...props }, ref) => (
   <div ref={ref} data-padding={padding} className={[styles.body, className].filter(Boolean).join(' ')} {...props} />
 ));
 Body.displayName = 'Card.Body';
