@@ -18,7 +18,7 @@ export interface DrawerProps {
   className?: string;
 }
 
-export interface DrawerHeaderProps extends React.ComponentPropsWithRef<'div'> {}
+export interface DrawerHeaderProps extends React.ComponentPropsWithRef<'header'> {}
 export interface DrawerBodyProps extends React.ComponentPropsWithRef<'div'> {}
 export interface DrawerFooterProps extends React.ComponentPropsWithRef<'div'> {}
 
@@ -86,10 +86,10 @@ const DrawerRoot = ({ open, onClose, side = 'right', size = 'md', children, clas
 };
 DrawerRoot.displayName = 'Drawer';
 
-const Header = forwardRef<HTMLDivElement, DrawerHeaderProps>(({ className, id, ...props }, ref) => {
+const Header = forwardRef<HTMLElement, DrawerHeaderProps>(({ className, id, ...props }, ref) => {
   const ctx = useContext(DrawerContext);
   return (
-    <div
+    <header
       ref={ref}
       id={ctx?.titleId ?? id}
       className={[styles.header, className].filter(Boolean).join(' ')}

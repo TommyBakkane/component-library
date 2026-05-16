@@ -17,7 +17,7 @@ export interface ModalProps {
   className?: string;
 }
 
-export interface ModalHeaderProps extends React.ComponentPropsWithRef<'div'> {}
+export interface ModalHeaderProps extends React.ComponentPropsWithRef<'header'> {}
 export interface ModalBodyProps extends React.ComponentPropsWithRef<'div'> {}
 export interface ModalFooterProps extends React.ComponentPropsWithRef<'div'> {}
 
@@ -84,10 +84,10 @@ const ModalRoot = ({ open, onClose, size = 'md', children, className }: ModalPro
 };
 ModalRoot.displayName = 'Modal';
 
-const Header = forwardRef<HTMLDivElement, ModalHeaderProps>(({ className, id, ...props }, ref) => {
+const Header = forwardRef<HTMLElement, ModalHeaderProps>(({ className, id, ...props }, ref) => {
   const ctx = useContext(ModalContext);
   return (
-    <div
+    <header
       ref={ref}
       id={ctx?.titleId ?? id}
       className={[styles.header, className].filter(Boolean).join(' ')}
