@@ -9,12 +9,10 @@ export interface CardProps extends React.ComponentPropsWithRef<'div'> {
 }
 
 export interface CardHeaderProps extends React.ComponentPropsWithRef<'header'> {}
-export interface CardBodyProps extends React.ComponentPropsWithRef<'div'> {
-  padding?: Padding;
-}
+export interface CardBodyProps extends React.ComponentPropsWithRef<'div'> {}
 export interface CardFooterProps extends React.ComponentPropsWithRef<'footer'> {}
 
-const CardRoot = forwardRef<HTMLDivElement, CardProps>(({ shadow = true, padding = 'none', className, ...props }, ref) => (
+const CardRoot = forwardRef<HTMLDivElement, CardProps>(({ shadow = true, padding = 'xl', className, ...props }, ref) => (
   <div
     ref={ref}
     data-shadow={String(shadow)}
@@ -30,8 +28,8 @@ const Header = forwardRef<HTMLElement, CardHeaderProps>(({ className, ...props }
 ));
 Header.displayName = 'Card.Header';
 
-const Body = forwardRef<HTMLDivElement, CardBodyProps>(({ padding = 'xl', className, ...props }, ref) => (
-  <div ref={ref} data-padding={padding} className={[styles.body, className].filter(Boolean).join(' ')} {...props} />
+const Body = forwardRef<HTMLDivElement, CardBodyProps>(({ className, ...props }, ref) => (
+  <div ref={ref} className={[styles.body, className].filter(Boolean).join(' ')} {...props} />
 ));
 Body.displayName = 'Card.Body';
 

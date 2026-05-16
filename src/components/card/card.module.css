@@ -17,8 +17,6 @@
    ======================== */
 
 .header {
-  padding: var(--spacing-md) var(--spacing-lg);
-
   font-weight: 500;
   font-size: var(--font-size-md);
   color: var(--color-on-surface);
@@ -28,15 +26,7 @@
   color: var(--color-on-surface);
 }
 
-.body[data-padding='none'] { padding: 0; }
-.body[data-padding='sm']   { padding: var(--spacing-sm); }
-.body[data-padding='md']   { padding: var(--spacing-md); }
-.body[data-padding='lg']   { padding: var(--spacing-lg); }
-.body[data-padding='xl']   { padding: var(--spacing-xl); }
-
 .footer {
-  padding: var(--spacing-md) var(--spacing-lg);
-
   background: var(--color-surface);
   display: flex;
   align-items: center;
