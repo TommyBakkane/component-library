@@ -1,6 +1,6 @@
 {
   "name": "@tommybakkane/component-library",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "type": "module",
   "description": "Reusable React component library",
   "repository": {
