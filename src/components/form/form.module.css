@@ -1,0 +1,10 @@
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+.root[data-gap='xs'] { gap: var(--spacing-xs); }
+.root[data-gap='sm'] { gap: var(--spacing-sm); }
+.root[data-gap='md'] { gap: var(--spacing-md); }
+.root[data-gap='lg'] { gap: var(--spacing-lg); }
+.root[data-gap='xl'] { gap: var(--spacing-xl); }

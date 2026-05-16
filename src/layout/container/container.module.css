@@ -1,0 +1,10 @@
+.root {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--spacing-xl);
+  box-sizing: border-box;
+}
+
+.root[data-size='sm'] { max-width: 640px; }
+.root[data-size='md'] { max-width: 960px; }
+.root[data-size='lg'] { max-width: 1200px; }
